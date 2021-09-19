@@ -17,6 +17,11 @@ import NoMatch from './pages/NoMatch';
 import SingleThought from './pages/SingleThought';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
+import Minecraft from './pages/Minecraft';
+import ApexLegends from './pages/ApexLegends';
+import Fortnite from './pages/Fortnite';
+import LeagueOfLegends from './pages/LeagueOfLegends';
+import PUBG from './pages/PUBG';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -50,6 +55,11 @@ function App() {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/thought/:id" component={SingleThought} />
+              <Route exact path="/minecraft" component={Minecraft} />
+              <Route exact path="/fortnite" component={Fortnite} />
+              <Route exact path="/apexlegends" component={ApexLegends} />
+              <Route exact path="/pubg" component={PUBG} />
+              <Route exact path="/leagueoflegends" component={LeagueOfLegends} />
 
               <Route component={NoMatch} />
             </Switch>

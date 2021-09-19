@@ -3,6 +3,7 @@ import React from 'react';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
+import GameList from '../components/GameList'
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_THOUGHTS);
@@ -18,6 +19,7 @@ const Home = () => {
             <h1>HOME PAGE</h1>
           </div>
         ) : null}
+            <GameList/>
     </main>
   );
 };
