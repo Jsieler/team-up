@@ -20,6 +20,15 @@ const userSchema = new Schema(
       required: true,
       minlength: 5
     },
+    xbox: {
+      type: String,
+    },
+    playstation: {
+      type: String,
+    },
+    pc: {
+      type: String,
+    },
     thoughts: [
       {
         type: Schema.Types.ObjectId,
