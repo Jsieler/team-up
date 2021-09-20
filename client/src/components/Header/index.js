@@ -17,9 +17,9 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <Link to="/">
           <h1>Team-UP</h1>
-          <img src={imageXbox}></img>
-          <img src={imagePlaystation}></img>
-          <img src={imagePC}></img>
+          <img src={imageXbox} alt=""></img>
+          <img src={imagePlaystation} alt=""></img>
+          <img src={imagePC} alt=""></img>
 
         </Link>
 

@@ -9,6 +9,10 @@ const Signup = () => {
     username: '',
     email: '',
     password: '',
+    xbox: '',
+    playstation: '',
+    pc: ''
+
   });
   const [addUser, { error }] = useMutation(ADD_USER);
 
@@ -71,6 +75,13 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
+              <select>
+                <option  value={formState.xbox} onChange={handleChange}>Xbox</option >
+                <option  value={formState.playstation} onChange={handleChange}>Play Station</option >
+                <option  value={formState.pc} onChange={handleChange}>PC</option >
+              </select>
+    
+              
               <button className="btn d-block w-100" type="submit">
                 Submit
               </button>

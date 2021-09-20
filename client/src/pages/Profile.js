@@ -72,7 +72,7 @@ const Profile = (props) => {
             title={`${user.username}'s Posts`}
           />
         </div>
-
+          <div>{user.xbox}</div>
         <div className="col-12 col-lg-3 mb-3">
           <FriendList
             username={user.username}
