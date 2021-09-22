@@ -51,6 +51,9 @@ const Minecraft = () => {
             <div>
               <img src={image} alt="minecraft-artwork"></img>
               <p>Minecraft is a first-person survival action / sandbox adventure game where players can gather resources, dig holes, fish, plant crops and more while at night try to avoid monsters.</p>
+              <button className="btn col-12 col-md-3" type="follow">
+                follow
+              </button>
             </div>
 
             <FollowersList
@@ -69,15 +72,6 @@ const Minecraft = () => {
             />
 
             <ThoughtForm />
-
-            {/* <div id="game-info">
-              <img id="game-image"></img>
-              <p id="dscription"></p>
-            </div>
-
-            <div id="followers"></div>
-
-            <div id="thoughts"></div> */}
 
           </div>
         </div>
