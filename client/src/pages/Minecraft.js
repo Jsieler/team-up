@@ -4,6 +4,7 @@ import { QUERY_USER, QUERY_ME } from '../utils/queries';
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import FollowersList from '../components/FollowersList';
+import FollowForm from '../components/FollowForm';
 import ThoughtForm from '../components/ThoughtForm';
 import image from '../components/GameList/images/minecraft.jpeg';
 
@@ -51,9 +52,9 @@ const Minecraft = () => {
             <div>
               <img src={image} alt="minecraft-artwork"></img>
               <p>Minecraft is a first-person survival action / sandbox adventure game where players can gather resources, dig holes, fish, plant crops and more while at night try to avoid monsters.</p>
-              <button className="btn col-12 col-md-3" type="follow">
-                follow
-              </button>
+
+              <FollowForm />
+
             </div>
 
             <FollowersList
