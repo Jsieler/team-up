@@ -5,7 +5,7 @@ import imagePlaystation from './images/playstation.png'
 import imagePC from './images/pc.png'
 import Auth from '../../utils/auth';
 
-const Header = ({ username }) => {
+const Header = () => {
   const logout = event => {
     event.preventDefault();
     Auth.logout();
