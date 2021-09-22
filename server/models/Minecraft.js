@@ -27,6 +27,6 @@ minecraftSchema.virtual('followerCount').get(function() {
 return this.followers.length;
 });
 
-const Minecraft = model('Minecraft', MinecraftSchema);
+const Minecraft = model('Minecraft', minecraftSchema);
 
 module.exports = Minecraft;
