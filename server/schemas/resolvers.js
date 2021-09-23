@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought, Minecraft } = require('../models');
+const { User, Thought, Minecraft, ThoughtFortnite } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -9,7 +9,8 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
           .populate('thoughts')
-          .populate('friends');
+          .populate('friends')
+          .populate('thoughtsfortnite');
 
         return userData;
       }
@@ -20,13 +21,15 @@ const resolvers = {
       return User.find()
         .select('-__v -password')
         .populate('thoughts')
-        .populate('friends');
+        .populate('friends')
+        .populate('thoughtsfortnite');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
         .populate('friends')
-        .populate('thoughts');
+        .populate('thoughts')
+        .populate('thoughtsfortnite');
     },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -34,6 +37,13 @@ const resolvers = {
     },
     thought: async (parent, { _id }) => {
       return Thought.findOne({ _id });
+    },
+    thoughtsfortnite: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return ThoughtFortnite.find(params).sort({ createdAt: -1 });
+    },
+    thoughtfortnite: async (parent, { _id }) => {
+      return ThoughtFortnite.findOne({ _id });
     },
     minecraft: async (parent, { gameName }) => {
       return Minecraft.findOne({ gameName })
@@ -88,6 +98,34 @@ const resolvers = {
         );
 
         return updatedThought;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addThoughtFortnite: async (parent, args, context) => {
+      if (context.user) {
+        const thoughtfortnite = await ThoughtFortnite.create({ ...args, username: context.user.username });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { thoughtsfortnite: thoughtfortnite._id } },
+          { new: true }
+        );
+ 
+        return thoughtfortnite;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addReactionFortnite: async (parent, { thoughtId, reactionBody }, context) => {
+      if (context.user) {
+        const updatedThoughtfortnite = await ThoughtFortnite.findOneAndUpdate(
+          { _id: thoughtId },
+          { $push: { reactions: { reactionBody, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+
+        return updatedThoughtfortnite;
       }
 
       throw new AuthenticationError('You need to be logged in!');
