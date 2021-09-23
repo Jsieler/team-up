@@ -83,3 +83,17 @@ export const REMOVE_FRIEND = gql`
     }
   }
 `;
+
+export const ADD_FOLLOWER = gql`
+  mutation addFollower($id: ID!) {
+    addFollower(followerId: $id) {
+      _id
+      gameName
+      followerCount
+      followers {
+        _id
+        username
+      }
+    }
+  }
+`;
