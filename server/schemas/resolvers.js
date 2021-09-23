@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought } = require('../models');
+const { User, Thought, Minecraft } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -34,7 +34,11 @@ const resolvers = {
     },
     thought: async (parent, { _id }) => {
       return Thought.findOne({ _id });
-    }
+    },
+    minecraft: async (parent, { gameName }) => {
+      return Minecraft.findOne({ gameName })
+        .populate('followers');
+    },
   },
 
   Mutation: {
@@ -97,6 +101,19 @@ const resolvers = {
         ).populate('friends');
 
         return updatedUser;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addFollower: async (parent, { followerId }, context) => {
+      if (context.user) {
+        const updatedMinecraft = await Minecraft.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { followers: followerId } },
+          { new: true }
+        ).populate('followers');
+
+        return updatedMinecraft;
       }
 
       throw new AuthenticationError('You need to be logged in!');

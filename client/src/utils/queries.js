@@ -107,3 +107,16 @@ export const QUERY_ME_BASIC = gql`
     }
   }
 `;
+export const QUERY_MINECRAFT = gql`
+  {
+    minecraft {
+      _id
+     gameName
+      followerCount
+      followers {
+        _id
+        username
+      }
+    }
+  }
+`;

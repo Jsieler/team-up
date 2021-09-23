@@ -29,6 +29,12 @@ const typeDefs = gql`
     username: String
   }
 
+  type Minecraft {
+    _id: ID
+    gameName: String
+    followers: [User]
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -40,6 +46,7 @@ const typeDefs = gql`
     user(username: String!): User
     thoughts(username: String): [Thought]
     thought(_id: ID!): Thought
+    minecraft: Minecraft
   }
 
   type Mutation {
@@ -48,6 +55,7 @@ const typeDefs = gql`
     addThought(thoughtText: String!): Thought
     addReaction(thoughtId: ID!, reactionBody: String!): Thought
     addFriend(friendId: ID!): User
+    addFollower(followerId: ID!): Minecraft
   }
 `;
 
