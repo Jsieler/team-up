@@ -140,6 +140,7 @@ export const QUERY_MINECRAFT = gql`
   }
 `;
 
+
 export const QUERY_THOUGHTSFORTNITE = gql`
   query thoughtsfortnite($username: String) {
     thoughtsfortnite(username: $username) {
@@ -175,3 +176,4 @@ export const QUERY_THOUGHTFORTNITE = gql`
     }
   }
 `;
+

@@ -97,6 +97,7 @@ export const ADD_FOLLOWER = gql`
     }
   }
 `;
+
 export const ADD_THOUGHTFORTNITE = gql`
   mutation addThoughtFortnite($thoughtText: String!) {
     addThoughtFortnite(thoughtText: $thoughtText) {
@@ -126,3 +127,4 @@ export const ADD_REACTIONFORTNITE = gql`
     }
   }
 `;
+
