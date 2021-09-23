@@ -56,6 +56,12 @@ export const QUERY_USER = gql`
         createdAt
         reactionCount
       }
+      thoughtsfortnite {
+        _id
+        thoughtText
+        createdAt
+        reactionCount
+      }
     }
   }
 `;
@@ -71,6 +77,18 @@ export const QUERY_ME = gql`
       playstation
       pc
       thoughts {
+        _id
+        thoughtText
+        createdAt
+        reactionCount
+        reactions {
+          _id
+          createdAt
+          reactionBody
+          username
+        }
+      }
+      thoughtsfortnite {
         _id
         thoughtText
         createdAt
@@ -107,6 +125,7 @@ export const QUERY_ME_BASIC = gql`
     }
   }
 `;
+
 export const QUERY_MINECRAFT = gql`
   {
     minecraft {
@@ -120,3 +139,41 @@ export const QUERY_MINECRAFT = gql`
     }
   }
 `;
+
+
+export const QUERY_THOUGHTSFORTNITE = gql`
+  query thoughtsfortnite($username: String) {
+    thoughtsfortnite(username: $username) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+
+export const QUERY_THOUGHTFORTNITE = gql`
+  query thoughtfortnite($id: ID!) {
+    thoughtfortnite(_id: $id) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+

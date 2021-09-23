@@ -73,6 +73,7 @@ const Minecraft = () => {
             />
 
             <ThoughtForm />
+            
 
           </div>
         </div>
