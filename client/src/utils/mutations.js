@@ -83,3 +83,48 @@ export const REMOVE_FRIEND = gql`
     }
   }
 `;
+
+export const ADD_FOLLOWER = gql`
+  mutation addFollower($id: ID!) {
+    addFollower(followerId: $id) {
+      _id
+      gameName
+      followerCount
+      followers {
+        _id
+        username
+      }
+    }
+  }
+`;
+
+export const ADD_THOUGHTFORTNITE = gql`
+  mutation addThoughtFortnite($thoughtText: String!) {
+    addThoughtFortnite(thoughtText: $thoughtText) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_REACTIONFORTNITE = gql`
+  mutation addReactionFornite($thoughtId: ID!, $reactionBody: String!) {
+    addReactionFortnite(thoughtId: $thoughtId, reactionBody: $reactionBody) {
+      _id
+      reactionCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
+

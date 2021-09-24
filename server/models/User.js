@@ -35,6 +35,12 @@ const userSchema = new Schema(
         ref: 'Thought'
       }
     ],
+    thoughtsfortnite: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'ThoughtFortnite'
+      }
+    ],
     friends: [
       {
         type: Schema.Types.ObjectId,

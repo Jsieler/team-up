@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ReactionList = ({ reactions }) => {
+const FortniteReactionList = ({ reactions }) => {
   return (
     <div className="card mb-3">
       <div className="card-header">
@@ -22,4 +22,4 @@ const ReactionList = ({ reactions }) => {
   );
 };
 
-export default ReactionList;
+export default FortniteReactionList;
