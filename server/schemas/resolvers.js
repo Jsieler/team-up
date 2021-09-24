@@ -111,7 +111,7 @@ const resolvers = {
           { $push: { thoughtsfortnite: thoughtfortnite._id } },
           { new: true }
         );
- 
+
         return thoughtfortnite;
       }
 
