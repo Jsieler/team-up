@@ -1,9 +1,8 @@
 const { Schema, model } = require('mongoose');
-const bcrypt = require('bcryptjs');
 
 const gamelistSchema = new Schema(
     {
-        listname: {
+        listName: {
             type: String,
             required: true,
             unique: true,

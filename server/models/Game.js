@@ -1,9 +1,8 @@
 const { Schema, model } = require('mongoose');
-const bcrypt = require('bcryptjs');
 
-const userSchema = new Schema(
+const gameSchema = new Schema(
     {
-        gamename: {
+        gameName: {
             type: String,
             required: true,
             unique: true,
@@ -42,6 +41,6 @@ const userSchema = new Schema(
 //     return this.friends.length;
 // });
 
-const User = model('User', userSchema);
+const User = model('Game', gameSchema);
 
 module.exports = User;

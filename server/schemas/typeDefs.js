@@ -39,6 +39,16 @@ const typeDefs = gql`
     reactions: [Reaction]
   }
 
+  type GameList {
+    listName: String
+    games: [Game]
+  }
+
+  type Game {
+   gameName: String
+   followers: [User]
+  }
+
 
   type Minecraft {
     _id: ID

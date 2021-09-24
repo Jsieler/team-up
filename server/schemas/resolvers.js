@@ -49,6 +49,16 @@ const resolvers = {
       return Minecraft.findOne({ gameName })
         .populate('followers');
     },
+    game: async (parent, { gameName }) => {
+      return Game.findOne({ gameName })
+        .populate('gameName')
+        .populate('followers');
+    },
+    gameslist: async (parent, { gameList }) => {
+      return GameList.findOne({ gameList })
+        .populate('gameList')
+        .populate('followers');
+    }
   },
 
   Mutation: {
