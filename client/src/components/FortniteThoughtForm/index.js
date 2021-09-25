@@ -9,14 +9,14 @@ const ForniteThoughtForm = () => {
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addThoughtFortnite, { error }] = useMutation(ADD_THOUGHTFORTNITE, {
-    update(cache, { data: { addThought } }) {
+    update(cache, { data: { addThoughtFortnite } }) {
       try {
         // update thought array's cache
         // could potentially not exist yet, so wrap in a try/catch
-        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTSFORTNITE });
+        const { thoughtsfortnite } = cache.readQuery({ query: QUERY_THOUGHTSFORTNITE });
         cache.writeQuery({
           query: QUERY_THOUGHTSFORTNITE,
-          data: { thoughts: [addThoughtFortnite, ...thoughts] },
+          data: { thoughtsfortnite: [addThoughtFortnite, ...thoughtsfortnite] },
         });
       } catch (e) {
         console.error(e);
@@ -26,7 +26,7 @@ const ForniteThoughtForm = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThoughtFortnite] } },
+        data: { me: { ...me, thoughtsfortnite: [...me.thoughtsfortnite, addThoughtFortnite] } },
       });
     },
   });
