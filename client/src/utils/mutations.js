@@ -114,8 +114,8 @@ export const ADD_THOUGHTFORTNITE = gql`
 `;
 
 export const ADD_REACTIONFORTNITE = gql`
-  mutation addReactionFornite($thoughtId: ID!, $reactionBody: String!) {
-    addReactionFortnite(thoughtId: $thoughtId, reactionBody: $reactionBody) {
+  mutation addReactionFornite($thoughtfortniteId: ID!, $reactionBody: String!) {
+    addReactionFortnite(thoughtfortniteId: $thoughtfortniteId, reactionBody: $reactionBody) {
       _id
       reactionCount
       reactions {

@@ -36,7 +36,14 @@ const typeDefs = gql`
     createdAt: String
     username: String
     reactionCount: Int
-    reactions: [Reaction]
+    reactions: [ReactionFortnite]
+  }
+
+  type ReactionFortnite {
+    _id: ID
+    reactionBody: String
+    createdAt: String
+    username: String
   }
 
 
@@ -70,7 +77,7 @@ const typeDefs = gql`
     addFriend(friendId: ID!): User
     addFollower(followerId: ID!): Minecraft
     addThoughtFortnite(thoughtText: String!): ThoughtFortnite
-    addReactionFortnite(thoughtId: ID!, reactionBody: String!): ThoughtFortnite
+    addReactionFortnite(thoughtfortniteId: ID!, reactionBody: String!): ThoughtFortnite
   }
 `;
 

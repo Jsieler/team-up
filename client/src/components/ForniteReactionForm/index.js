@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_REACTIONFORTNITE } from '../../utils/mutations';
 
-const FortniteReactionForm = ({ thoughtId }) => {
+const FortniteReactionForm = ({ thoughtfortniteId }) => {
   const [reactionBody, setBody] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
-  const [addReactionFornite, { error }] = useMutation(ADD_REACTIONFORTNITE);
+  const [addReactionFortnite, { error }] = useMutation(ADD_REACTIONFORTNITE);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -18,11 +18,11 @@ const FortniteReactionForm = ({ thoughtId }) => {
 
   // submit form
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     try {
-      await addReactionFornite({
-        variables: { reactionBody, thoughtId },
+      await addReactionFortnite({
+        variables: { reactionBody, thoughtfortniteId },
       });
 
       // clear form value

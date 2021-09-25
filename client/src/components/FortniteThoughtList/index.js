@@ -23,7 +23,7 @@ const FortniteThoughtList = ({ thoughtsfortnite, title }) => {
               Post on {thoughtfortnite.createdAt}
             </p>
             <div className="card-body">
-              <Link to={`/thought/${thoughtfortnite._id}`}>
+              <Link to={`/thoughtfortnite/${thoughtfortnite._id}`}>
                 <p>{thoughtfortnite.thoughtText}</p>
                 <p className="mb-0">
                   Comments: {thoughtfortnite.reactionCount} 

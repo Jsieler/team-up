@@ -15,6 +15,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import NoMatch from './pages/NoMatch';
 import SingleThought from './pages/SingleThought';
+import SingleThoughtFortnite from './pages/SingleThoughtFortnite';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Minecraft from './pages/Minecraft';
@@ -55,6 +56,7 @@ function App() {
               <Route exact path="/signup" component={Signup} />
               <Route exact path="/profile/:username?" component={Profile} />
               <Route exact path="/thought/:id" component={SingleThought} />
+              <Route exact path="/thoughtfortnite/:id" component={SingleThoughtFortnite} />
               <Route exact path="/minecraft" component={Minecraft} />
               <Route exact path="/fortnite" component={Fortnite} />
               <Route exact path="/apexlegends" component={ApexLegends} />

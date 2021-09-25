@@ -117,15 +117,15 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addReactionFortnite: async (parent, { thoughtId, reactionBody }, context) => {
+    addReactionFortnite: async (parent, { thoughtfortniteId, reactionBody }, context) => {
       if (context.user) {
-        const updatedThoughtfortnite = await ThoughtFortnite.findOneAndUpdate(
-          { _id: thoughtId },
+        const updatedThoughtFortnite = await ThoughtFortnite.findOneAndUpdate(
+          { _id: thoughtfortniteId },
           { $push: { reactions: { reactionBody, username: context.user.username } } },
           { new: true, runValidators: true }
         );
 
-        return updatedThoughtfortnite;
+        return updatedThoughtFortnite;
       }
 
       throw new AuthenticationError('You need to be logged in!');
