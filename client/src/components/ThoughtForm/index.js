@@ -41,7 +41,7 @@ const ThoughtForm = () => {
 
   // submit form
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     try {
       await addThought({
