@@ -53,6 +53,12 @@ const userSchema = new Schema(
         ref: 'ThoughtPubg'
       }
     ],
+    thoughtsmine: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'ThoughtMine'
+      }
+    ],
     friends: [
       {
         type: Schema.Types.ObjectId,

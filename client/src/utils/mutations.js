@@ -188,3 +188,32 @@ export const ADD_REACTIONPUBG = gql`
   }
 `;
 
+export const ADD_THOUGHTMINE = gql`
+  mutation addThoughtMine($thoughtText: String!) {
+    addThoughtMine(thoughtText: $thoughtText) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_REACTIONMINE = gql`
+  mutation addReactionMine($thoughtmineId: ID!, $reactionBody: String!) {
+    addReactionMine(thoughtmineId: $thoughtmineId, reactionBody: $reactionBody) {
+      _id
+      reactionCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;

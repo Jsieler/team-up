@@ -285,3 +285,39 @@ export const QUERY_THOUGHTPUBG = gql`
     }
   }
 `;
+
+export const QUERY_THOUGHTSMINE = gql`
+  query thoughtsmine($username: String) {
+    thoughtsmine(username: $username) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+
+export const QUERY_THOUGHTMINE = gql`
+  query thoughtmine($id: ID!) {
+    thoughtmine(_id: $id) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;

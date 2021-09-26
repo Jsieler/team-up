@@ -10,6 +10,7 @@ const typeDefs = gql`
     thoughtsfortnite: [ThoughtFortnite]
     thoughtsapex: [ThoughtApex]
     thoughtspubg: [ThoughtPubg]
+    thoughtsmine: [ThoughtMine]
     friends: [User]
     xbox: String
     playstation: String
@@ -80,6 +81,22 @@ const typeDefs = gql`
     username: String
   }
 
+  type ThoughtMine {
+    _id: ID
+    thoughtText: String
+    createdAt: String
+    username: String
+    reactionCount: Int
+    reactions: [ReactionMine]
+  }
+
+  type ReactionMine {
+    _id: ID
+    reactionBody: String
+    createdAt: String
+    username: String
+  }
+
   type Minecraft {
     _id: ID
     gameName: String
@@ -103,6 +120,8 @@ const typeDefs = gql`
     thoughtapex(_id: ID!): ThoughtApex
     thoughtspubg(username: String): [ThoughtPubg]
     thoughtpubg(_id: ID!): ThoughtPubg
+    thoughtsmine(username: String): [ThoughtMine]
+    thoughtmine(_id: ID!): ThoughtMine
     minecraft: Minecraft
   }
 
@@ -119,6 +138,8 @@ const typeDefs = gql`
     addReactionApex(thoughtapexId: ID!, reactionBody: String!): ThoughtApex
     addThoughtPubg(thoughtText: String!): ThoughtPubg
     addReactionPubg(thoughtpubgId: ID!, reactionBody: String!): ThoughtPubg
+    addThoughtMine(thoughtText: String!): ThoughtMine
+    addReactionMine(thoughtmineId: ID!, reactionBody: String!): ThoughtMine
   }
 `;
 
