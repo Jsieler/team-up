@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought, Minecraft, ThoughtFortnite } = require('../models');
+const { User, Thought, Minecraft, ThoughtFortnite, ThoughtApex } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -10,7 +10,8 @@ const resolvers = {
           .select('-__v -password')
           .populate('thoughts')
           .populate('friends')
-          .populate('thoughtsfortnite');
+          .populate('thoughtsfortnite')
+          .populate('thoughtsapex');
 
         return userData;
       }
@@ -22,14 +23,16 @@ const resolvers = {
         .select('-__v -password')
         .populate('thoughts')
         .populate('friends')
-        .populate('thoughtsfortnite');
+        .populate('thoughtsfortnite')
+        .populate('thoughtsapex');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
         .populate('friends')
         .populate('thoughts')
-        .populate('thoughtsfortnite');
+        .populate('thoughtsfortnite')
+        .populate('thoughtsapex');
     },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -44,6 +47,13 @@ const resolvers = {
     },
     thoughtfortnite: async (parent, { _id }) => {
       return ThoughtFortnite.findOne({ _id });
+    },
+    thoughtsapex: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return ThoughtApex.find(params).sort({ createdAt: -1 });
+    },
+    thoughtapex: async (parent, { _id }) => {
+      return ThoughtApex.findOne({ _id });
     },
     minecraft: async (parent, { gameName }) => {
       return Minecraft.findOne({ gameName })
@@ -126,6 +136,34 @@ const resolvers = {
         );
 
         return updatedThoughtFortnite;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addThoughtApex: async (parent, args, context) => {
+      if (context.user) {
+        const thoughtapex = await ThoughtApex.create({ ...args, username: context.user.username });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { thoughtsapex: thoughtapex._id } },
+          { new: true }
+        );
+ 
+        return thoughtapex;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addReactionApex: async (parent, { thoughtapexId, reactionBody }, context) => {
+      if (context.user) {
+        const updatedThoughtApex = await ThoughtApex.findOneAndUpdate(
+          { _id: thoughtapexId },
+          { $push: { reactions: { reactionBody, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+
+        return updatedThoughtApex;
       }
 
       throw new AuthenticationError('You need to be logged in!');

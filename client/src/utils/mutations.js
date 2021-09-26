@@ -128,3 +128,33 @@ export const ADD_REACTIONFORTNITE = gql`
   }
 `;
 
+export const ADD_THOUGHTAPEX = gql`
+  mutation addThoughtApex($thoughtText: String!) {
+    addThoughtApex(thoughtText: $thoughtText) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_REACTIONAPEX = gql`
+  mutation addReactionApex($thoughtapexId: ID!, $reactionBody: String!) {
+    addReactionApex(thoughtapexId: $thoughtapexId, reactionBody: $reactionBody) {
+      _id
+      reactionCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
+
