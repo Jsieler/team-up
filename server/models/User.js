@@ -41,6 +41,18 @@ const userSchema = new Schema(
         ref: 'ThoughtFortnite'
       }
     ],
+    thoughtsapex: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'ThoughtApex'
+      }
+    ],
+    thoughtspubg: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'ThoughtPubg'
+      }
+    ],
     friends: [
       {
         type: Schema.Types.ObjectId,

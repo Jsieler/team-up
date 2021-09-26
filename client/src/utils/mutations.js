@@ -158,3 +158,33 @@ export const ADD_REACTIONAPEX = gql`
   }
 `;
 
+export const ADD_THOUGHTPUBG = gql`
+  mutation addThoughtPubg($thoughtText: String!) {
+    addThoughtPubg(thoughtText: $thoughtText) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_REACTIONPUBG = gql`
+  mutation addReactionPubg($thoughtpubgId: ID!, $reactionBody: String!) {
+    addReactionPubg(thoughtpubgId: $thoughtpubgId, reactionBody: $reactionBody) {
+      _id
+      reactionCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
+
