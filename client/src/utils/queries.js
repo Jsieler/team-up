@@ -68,6 +68,12 @@ export const QUERY_USER = gql`
         createdAt
         reactionCount
       }
+      thoughtspubg {
+        _id
+        thoughtText
+        createdAt
+        reactionCount
+      }
     }
   }
 `;
@@ -107,6 +113,18 @@ export const QUERY_ME = gql`
         }
       }
       thoughtsapex {
+        _id
+        thoughtText
+        createdAt
+        reactionCount
+        reactions {
+          _id
+          createdAt
+          reactionBody
+          username
+        }
+      }
+      thoughtspubg {
         _id
         thoughtText
         createdAt
@@ -232,3 +250,38 @@ export const QUERY_THOUGHTAPEX = gql`
   }
 `;
 
+export const QUERY_THOUGHTSPUBG = gql`
+  query thoughtspubg($username: String) {
+    thoughtspubg(username: $username) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+
+export const QUERY_THOUGHTPUBG = gql`
+  query thoughtpubg($id: ID!) {
+    thoughtpubg(_id: $id) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
