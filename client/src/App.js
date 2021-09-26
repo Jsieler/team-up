@@ -18,6 +18,7 @@ import SingleThought from './pages/SingleThought';
 import SingleThoughtFortnite from './pages/SingleThoughtFortnite';
 import SingleThoughtApex from './pages/SingleThoughtApex';
 import SingleThoughtPubg from './pages/SingleThoughtPubg';
+import SingleThoughtMine from './pages/SingleThoughtMine';
 import Profile from './pages/Profile';
 import Signup from './pages/Signup';
 import Minecraft from './pages/Minecraft';
@@ -61,6 +62,7 @@ function App() {
               <Route exact path="/thoughtfortnite/:id" component={SingleThoughtFortnite} />
               <Route exact path="/thoughtapex/:id" component={SingleThoughtApex} />
               <Route exact path="/thoughtpubg/:id" component={SingleThoughtPubg} />
+              <Route exact path="/thoughtmine/:id" component={SingleThoughtMine} />
               <Route exact path="/minecraft" component={Minecraft} />
               <Route exact path="/fortnite" component={Fortnite} />
               <Route exact path="/apexlegends" component={ApexLegends} />
