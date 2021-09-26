@@ -8,6 +8,7 @@ const typeDefs = gql`
     friendCount: Int
     thoughts: [Thought]
     thoughtsfortnite: [ThoughtFortnite]
+    thoughtsapex: [ThoughtApex]
     friends: [User]
     xbox: String
     playstation: String
@@ -46,6 +47,21 @@ const typeDefs = gql`
     username: String
   }
 
+  type ThoughtApex {
+    _id: ID
+    thoughtText: String
+    createdAt: String
+    username: String
+    reactionCount: Int
+    reactions: [ReactionApex]
+  }
+
+  type ReactionApex {
+    _id: ID
+    reactionBody: String
+    createdAt: String
+    username: String
+  }
 
   type Minecraft {
     _id: ID
@@ -66,6 +82,8 @@ const typeDefs = gql`
     thought(_id: ID!): Thought
     thoughtsfortnite(username: String): [ThoughtFortnite]
     thoughtfortnite(_id: ID!): ThoughtFortnite
+    thoughtsapex(username: String): [ThoughtApex]
+    thoughtapex(_id: ID!): ThoughtApex
     minecraft: Minecraft
   }
 
@@ -78,6 +96,8 @@ const typeDefs = gql`
     addFollower(followerId: ID!): Minecraft
     addThoughtFortnite(thoughtText: String!): ThoughtFortnite
     addReactionFortnite(thoughtfortniteId: ID!, reactionBody: String!): ThoughtFortnite
+    addThoughtApex(thoughtText: String!): ThoughtApex
+    addReactionApex(thoughtapexId: ID!, reactionBody: String!): ThoughtApex
   }
 `;
 
