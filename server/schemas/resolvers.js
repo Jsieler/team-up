@@ -265,25 +265,38 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addFollower: async (parent, { followerId }, context) => {
-      if (context.user) {
-        const updatedMinecraft = await Minecraft.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { followers: followerId } },
-          { new: true }
-        ).populate('followers');
+    // addFollower: async (parent, { followerId }, context) => {
+    //   if (context.user) {
+    //     const updatedMinecraft = await Minecraft.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $addToSet: { followers: followerId } },
+    //       { new: true }
+    //     ).populate('followers');
 
-        return updatedMinecraft;
-      }
+    //     return updatedMinecraft;
+    //   }
 
-      throw new AuthenticationError('You need to be logged in!');
-    },
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
     // ========================= game logic ==================================
     addGame: async (parent, gameName) => {
       const game = await Game.create(gameName);
 
       return game;
     },
+    addFollow: async (parent, { gameId }, context) => {
+      if (context.user) {
+        const updatedGame = await Game.findOneAndUpdate(
+          { _id: gameId },
+          { $push: { followers: { _id: context.user._id } } },
+          { new: true, runValidators: true }
+        ).populate('followers');
+
+        return updatedGame;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    }
   }
 };
 

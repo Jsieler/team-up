@@ -149,6 +149,7 @@ const typeDefs = gql`
     addThoughtMine(thoughtText: String!): ThoughtMine
     addReactionMine(thoughtmineId: ID!, reactionBody: String!): ThoughtMine
     addGame(gameName: String!): Game
+    addFollow(gameId: ID!): Game
 
   }
 `;
