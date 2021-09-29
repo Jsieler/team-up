@@ -304,7 +304,7 @@ const resolvers = {
 
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $push: { games: { _id: gameId } } },
+          { $addToSet: { games: { _id: gameId } } },
           { new: true, runValidators: true }
         ).populate('games')
 
