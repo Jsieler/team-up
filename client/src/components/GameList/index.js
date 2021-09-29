@@ -5,8 +5,12 @@ const GameList = () => {
 
     return (
 
+    //     <button class="special-button dropdown">
+    //     Choose a Game<span aria-hidden></span>
+    //   </button>
+
     <div class="dropdown">
-        <button class="dropbtn btn d-block w-30">Choose a Game</button>
+        <button class="special-button">Choose a Game</button>
         <div class="dropdown-content">
             <a href="/minecraft">Minecraft</a>
             <a href="/fortnite">Fortnite</a>

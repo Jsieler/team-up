@@ -13,7 +13,6 @@ const Home = () => {
   return (
     <main>
       <GameList />
-    
     </main>
   );
 };
