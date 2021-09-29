@@ -54,6 +54,7 @@ const typeDefs = gql`
     _id: ID
    gameName: String
    followers: [User]
+   thoughts: [Thought]
   }
 
   type ThoughtApex {
@@ -152,7 +153,7 @@ const typeDefs = gql`
     addReactionMine(thoughtmineId: ID!, reactionBody: String!): ThoughtMine
     addGame(gameName: String!): Game
     addFollow(gameId: ID!): Game
-
+    addGameThought(gameId: ID thoughtText: String!): Thought
   }
 `;
 

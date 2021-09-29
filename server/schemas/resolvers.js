@@ -87,12 +87,15 @@ const resolvers = {
     games: async () => {
       return Game.find()
         .select('-__v')
-        .populate('followers');
+        .populate('followers')
+        .populate('thoughts');
     },
     // get single game
     game: async (parent, { gameName }) => {
       return Game.findOne({ gameName })
+        .select('-__v')
         .populate('followers')
+        .populate('thoughts');
     }
   },
 
@@ -309,6 +312,20 @@ const resolvers = {
       }
 
       throw new AuthenticationError('You need to be logged in!');
+    },
+    addGameThought: async (parent, { gameId, thoughtText }, context) => {
+      if (context.user) {
+        const gameThought = await Thought.create({ thoughtText, username: context.user.username })
+
+        await Game.findByIdAndUpdate(
+          { _id: gameId },
+          { $push: { thoughts: gameThought._id } },
+          { new: true }
+        ).populate('thoughts');
+
+        return gameThought;
+
+      }
     }
   }
 };
