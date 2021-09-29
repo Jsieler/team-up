@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought, Minecraft, ThoughtFortnite } = require('../models');
+const { User, Thought, Minecraft, ThoughtFortnite, } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -49,14 +49,11 @@ const resolvers = {
       return Minecraft.findOne({ gameName })
         .populate('followers');
     },
-    game: async (parent, { gameName }) => {
-      return Game.findOne({ gameName })
-        .populate('gameName')
-        .populate('followers');
-    },
-    gameslist: async (parent, { gameList }) => {
-      return GameList.findOne({ gameList })
-        .populate('gameList')
+    // ========================= game logic ==================================
+    // get all games
+    games: async () => {
+      return Game.find()
+        .select('-__v')
         .populate('followers');
     }
   },
@@ -166,6 +163,10 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     }
+    // ========================= game logic ==================================
+    // addGame: async (parent, { gameName }, context) => {
+
+    // },
   }
 };
 

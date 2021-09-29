@@ -39,16 +39,10 @@ const typeDefs = gql`
     reactions: [Reaction]
   }
 
-  type GameList {
-    listName: String
-    games: [Game]
-  }
-
   type Game {
    gameName: String
    followers: [User]
   }
-
 
   type Minecraft {
     _id: ID
@@ -70,6 +64,7 @@ const typeDefs = gql`
     thoughtsfortnite(username: String): [ThoughtFortnite]
     thoughtfortnite(_id: ID!): ThoughtFortnite
     minecraft: Minecraft
+    games: [Game]
   }
 
   type Mutation {
