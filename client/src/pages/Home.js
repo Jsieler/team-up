@@ -1,6 +1,6 @@
 import React from 'react';
 import GameList from '../components/GameList'
-
+import GamePop from '../components/carousel'
 // import Auth from '../utils/auth';
 // import { useQuery } from '@apollo/client';
 
@@ -13,6 +13,7 @@ const Home = () => {
   return (
     <main>
       <GameList />
+      <GamePop />
     
     </main>
   );
