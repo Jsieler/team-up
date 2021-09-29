@@ -114,8 +114,8 @@ export const ADD_THOUGHTFORTNITE = gql`
 `;
 
 export const ADD_REACTIONFORTNITE = gql`
-  mutation addReactionFornite($thoughtId: ID!, $reactionBody: String!) {
-    addReactionFortnite(thoughtId: $thoughtId, reactionBody: $reactionBody) {
+  mutation addReactionFornite($thoughtfortniteId: ID!, $reactionBody: String!) {
+    addReactionFortnite(thoughtfortniteId: $thoughtfortniteId, reactionBody: $reactionBody) {
       _id
       reactionCount
       reactions {
@@ -128,3 +128,92 @@ export const ADD_REACTIONFORTNITE = gql`
   }
 `;
 
+export const ADD_THOUGHTAPEX = gql`
+  mutation addThoughtApex($thoughtText: String!) {
+    addThoughtApex(thoughtText: $thoughtText) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_REACTIONAPEX = gql`
+  mutation addReactionApex($thoughtapexId: ID!, $reactionBody: String!) {
+    addReactionApex(thoughtapexId: $thoughtapexId, reactionBody: $reactionBody) {
+      _id
+      reactionCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
+
+export const ADD_THOUGHTPUBG = gql`
+  mutation addThoughtPubg($thoughtText: String!) {
+    addThoughtPubg(thoughtText: $thoughtText) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_REACTIONPUBG = gql`
+  mutation addReactionPubg($thoughtpubgId: ID!, $reactionBody: String!) {
+    addReactionPubg(thoughtpubgId: $thoughtpubgId, reactionBody: $reactionBody) {
+      _id
+      reactionCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
+
+export const ADD_THOUGHTMINE = gql`
+  mutation addThoughtMine($thoughtText: String!) {
+    addThoughtMine(thoughtText: $thoughtText) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_REACTIONMINE = gql`
+  mutation addReactionMine($thoughtmineId: ID!, $reactionBody: String!) {
+    addReactionMine(thoughtmineId: $thoughtmineId, reactionBody: $reactionBody) {
+      _id
+      reactionCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;

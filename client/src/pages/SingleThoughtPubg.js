@@ -1,21 +1,21 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import ReactionList from '../components/ReactionList';
-import ReactionForm from '../components/ReactionForm';
+import PubgReactionList from '../components/PubgReactionList';
+import PubgReactionForm from '../components/PubgReactionForm';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
-import { QUERY_THOUGHT } from '../utils/queries';
+import { QUERY_THOUGHTPUBG } from '../utils/queries';
 
-const SingleThought = (props) => {
-  const { id: thoughtId } = useParams();
+const SingleThoughtPubg = (props) => {
+  const { id: thoughtpubgId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_THOUGHT, {
-    variables: { id: thoughtId },
+  const { loading, data } = useQuery(QUERY_THOUGHTPUBG, {
+    variables: { id: thoughtpubgId },
   });
 
-  const thought = data?.thought || {};
+  const thought = data?.thoughtpubg || {};
 
   if (loading) {
     return <div>Loading...</div>;
@@ -36,12 +36,12 @@ const SingleThought = (props) => {
       </div>
 
       {thought.reactionCount > 0 && (
-        <ReactionList reactions={thought.reactions} />
+        <PubgReactionList reactions={thought.reactions} />
       )}
 
-      {Auth.loggedIn() && <ReactionForm thoughtId={thought._id} />}
+      {Auth.loggedIn() && <PubgReactionForm thoughtpubgId={thought._id} />}
     </div>
   );
 };
 
-export default SingleThought;
+export default SingleThoughtPubg;

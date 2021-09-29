@@ -1,21 +1,21 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-import ReactionList from '../components/ReactionList';
-import ReactionForm from '../components/ReactionForm';
+import FortniteReactionList from '../components/FortniteReactionList';
+import FortniteReactionForm from '../components/ForniteReactionForm';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
-import { QUERY_THOUGHT } from '../utils/queries';
+import { QUERY_THOUGHTFORTNITE } from '../utils/queries';
 
-const SingleThought = (props) => {
-  const { id: thoughtId } = useParams();
+const SingleThoughtFortnite = (props) => {
+  const { id: thoughtfortniteId } = useParams();
 
-  const { loading, data } = useQuery(QUERY_THOUGHT, {
-    variables: { id: thoughtId },
+  const { loading, data } = useQuery(QUERY_THOUGHTFORTNITE, {
+    variables: { id: thoughtfortniteId },
   });
 
-  const thought = data?.thought || {};
+  const thought = data?.thoughtfortnite || {};
 
   if (loading) {
     return <div>Loading...</div>;
@@ -36,12 +36,12 @@ const SingleThought = (props) => {
       </div>
 
       {thought.reactionCount > 0 && (
-        <ReactionList reactions={thought.reactions} />
+        <FortniteReactionList reactions={thought.reactions} />
       )}
 
-      {Auth.loggedIn() && <ReactionForm thoughtId={thought._id} />}
+      {Auth.loggedIn() && <FortniteReactionForm thoughtfortniteId={thought._id} />}
     </div>
   );
 };
 
-export default SingleThought;
+export default SingleThoughtFortnite;
