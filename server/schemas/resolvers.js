@@ -1,7 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 
-const { User, Thought, Minecraft, ThoughtFortnite, ThoughtApex, ThoughtPubg, ThoughtMine } = require('../models');
-
+const { User, Thought, Minecraft, ThoughtFortnite, ThoughtApex, ThoughtPubg, ThoughtMine, Game } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -178,7 +177,7 @@ const resolvers = {
           { $push: { thoughtsapex: thoughtapex._id } },
           { new: true }
         );
- 
+
         return thoughtapex;
       }
 
@@ -206,7 +205,7 @@ const resolvers = {
           { $push: { thoughtspubg: thoughtpubg._id } },
           { new: true }
         );
- 
+
         return thoughtpubg;
       }
 
@@ -234,7 +233,7 @@ const resolvers = {
           { $push: { thoughtsmine: thoughtmine._id } },
           { new: true }
         );
- 
+
         return thoughtmine;
       }
 
@@ -278,11 +277,13 @@ const resolvers = {
       }
 
       throw new AuthenticationError('You need to be logged in!');
-    }
+    },
     // ========================= game logic ==================================
-    // addGame: async (parent, { gameName }, context) => {
+    addGame: async (parent, gameName) => {
+      const game = await Game.create(gameName);
 
-    // },
+      return game;
+    },
   }
 };
 

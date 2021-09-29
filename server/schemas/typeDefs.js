@@ -51,6 +51,7 @@ const typeDefs = gql`
 
 
   type Game {
+    _id: ID
    gameName: String
    followers: [User]
 
@@ -147,6 +148,8 @@ const typeDefs = gql`
     addReactionPubg(thoughtpubgId: ID!, reactionBody: String!): ThoughtPubg
     addThoughtMine(thoughtText: String!): ThoughtMine
     addReactionMine(thoughtmineId: ID!, reactionBody: String!): ThoughtMine
+    addGame(gameName: String!): Game
+
   }
 `;
 

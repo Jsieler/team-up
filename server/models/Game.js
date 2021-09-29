@@ -41,6 +41,6 @@ const gameSchema = new Schema(
 //     return this.friends.length;
 // });
 
-const User = model('Game', gameSchema);
+const Game = model('Game', gameSchema);
 
-module.exports = User;
+module.exports = Game;
