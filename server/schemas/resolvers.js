@@ -1,6 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 
-const { User, Thought, Minecraft, ThoughtFortnite, ThoughtApex, ThoughtPubg, ThoughtMine, Game } = require('../models');
+const { User, Thought, Minecraft, ThoughtFortnite, ApexThoughts, ThoughtPubg, ThoughtMine, Game } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -170,7 +170,7 @@ const resolvers = {
     },
     addThoughtApex: async (parent, args, context) => {
       if (context.user) {
-        const thoughtapex = await ThoughtApex.create({ ...args, username: context.user.username });
+        const thoughtapex = await ApexThoughts.create({ ...args, username: context.user.username });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
