@@ -13,12 +13,8 @@ const Home = () => {
   return (
     <main>
       <GameList />
-<<<<<<< HEAD
-      
-=======
       <GamePop />
     
->>>>>>> main
     </main>
   );
 };

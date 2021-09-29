@@ -12,11 +12,7 @@ const Header = () => {
   };
   return (
     
-<<<<<<< HEAD
     <header className="bg-secondary mb-4 py-2 flex-row align-center yellow">
-=======
-    <header className="bg-secondary mb-4 py-1 flex-row align-center">
->>>>>>> main
       <div className="container flex-row justify-space-between-lg justify-center align-center vex">
         <Link to="/" class="move-left">
           
