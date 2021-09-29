@@ -49,13 +49,12 @@ const typeDefs = gql`
     username: String
   }
 
-
   type Game {
     _id: ID
    gameName: String
    followers: [User]
   }
-  
+
   type ThoughtApex {
     _id: ID
     thoughtText: String
