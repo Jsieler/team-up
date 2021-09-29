@@ -49,6 +49,12 @@ const typeDefs = gql`
     username: String
   }
 
+
+  type Game {
+   gameName: String
+   followers: [User]
+   }
+
   type ThoughtApex {
     _id: ID
     thoughtText: String
@@ -95,6 +101,7 @@ const typeDefs = gql`
     reactionBody: String
     createdAt: String
     username: String
+
   }
 
   type Minecraft {
@@ -123,6 +130,7 @@ const typeDefs = gql`
     thoughtsmine(username: String): [ThoughtMine]
     thoughtmine(_id: ID!): ThoughtMine
     minecraft: Minecraft
+    games: [Game]
   }
 
   type Mutation {
