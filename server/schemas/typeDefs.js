@@ -15,6 +15,7 @@ const typeDefs = gql`
     xbox: String
     playstation: String
     pc: String
+    games: [Game]
   }
 
   type Thought {

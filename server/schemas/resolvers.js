@@ -29,7 +29,8 @@ const resolvers = {
         .populate('thoughtsfortnite')
         .populate('thoughtsapex')
         .populate('thoughtspubg')
-        .populate('thoughtsmine');
+        .populate('thoughtsmine')
+        .populate('games');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
@@ -39,7 +40,8 @@ const resolvers = {
         .populate('thoughtsfortnite')
         .populate('thoughtsapex')
         .populate('thoughtspubg')
-        .populate('thoughtsmine');
+        .populate('thoughtsmine')
+        .populate('games');
     },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -290,7 +292,13 @@ const resolvers = {
           { _id: gameId },
           { $push: { followers: { _id: context.user._id } } },
           { new: true, runValidators: true }
-        ).populate('followers');
+        ).populate('followers')
+
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $push: { games: { _id: gameId } } },
+          { new: true, runValidators: true }
+        ).populate('games')
 
         return updatedGame;
       }
