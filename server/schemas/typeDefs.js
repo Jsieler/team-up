@@ -132,6 +132,7 @@ const typeDefs = gql`
     thoughtmine(_id: ID!): ThoughtMine
     minecraft: Minecraft
     games: [Game]
+    game(gameName: String!): Game
   }
 
   type Mutation {

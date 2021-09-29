@@ -88,6 +88,11 @@ const resolvers = {
       return Game.find()
         .select('-__v')
         .populate('followers');
+    },
+    // get single game
+    game: async (parent, { gameName }) => {
+      return Game.findOne({ gameName })
+        .populate('followers')
     }
   },
 
