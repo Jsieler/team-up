@@ -1363,7 +1363,7 @@ nav a:hover {
 }
 
 .fortnite {
-  background: url(../src/images/fortneet.png);
+  background: url(../src/images/Fortnite.png);
   background-position: left;
   background-repeat: no-repeat;
   height: 130px;
@@ -1376,7 +1376,7 @@ nav a:hover {
 }
 
 .league {
-  background: url(../src/images/newlegends.png);
+  background: url(../src/images/League.png);
   background-position: left;
   background-repeat: no-repeat;
   height: 130px;
@@ -1389,7 +1389,7 @@ nav a:hover {
 }
 
 .pubg {
-  background: url("../src/images/newpubg.png");
+  background: url("../src/images/Pubg.png");
   background-position: left;
   background-repeat: no-repeat;
   height: 130px;
@@ -1402,7 +1402,7 @@ nav a:hover {
 }
 
 .apex {
-  background: url("../src/images/newapex.png");
+  background: url("../src/images/Apex.png");
   background-position: left;
   background-repeat: no-repeat;
   height: 130px;
