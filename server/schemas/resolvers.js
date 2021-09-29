@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Thought, Minecraft, ThoughtFortnite } = require('../models');
+const { User, Thought, Minecraft, ThoughtFortnite, ThoughtApex, ThoughtPubg, ThoughtMine } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -10,7 +10,10 @@ const resolvers = {
           .select('-__v -password')
           .populate('thoughts')
           .populate('friends')
-          .populate('thoughtsfortnite');
+          .populate('thoughtsfortnite')
+          .populate('thoughtsapex')
+          .populate('thoughtspubg')
+          .populate('thoughtsmine');
 
         return userData;
       }
@@ -22,14 +25,20 @@ const resolvers = {
         .select('-__v -password')
         .populate('thoughts')
         .populate('friends')
-        .populate('thoughtsfortnite');
+        .populate('thoughtsfortnite')
+        .populate('thoughtsapex')
+        .populate('thoughtspubg')
+        .populate('thoughtsmine');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
         .populate('friends')
         .populate('thoughts')
-        .populate('thoughtsfortnite');
+        .populate('thoughtsfortnite')
+        .populate('thoughtsapex')
+        .populate('thoughtspubg')
+        .populate('thoughtsmine');
     },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -44,6 +53,27 @@ const resolvers = {
     },
     thoughtfortnite: async (parent, { _id }) => {
       return ThoughtFortnite.findOne({ _id });
+    },
+    thoughtsapex: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return ThoughtApex.find(params).sort({ createdAt: -1 });
+    },
+    thoughtapex: async (parent, { _id }) => {
+      return ThoughtApex.findOne({ _id });
+    },
+    thoughtspubg: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return ThoughtPubg.find(params).sort({ createdAt: -1 });
+    },
+    thoughtpubg: async (parent, { _id }) => {
+      return ThoughtPubg.findOne({ _id });
+    },
+    thoughtsmine: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return ThoughtMine.find(params).sort({ createdAt: -1 });
+    },
+    thoughtmine: async (parent, { _id }) => {
+      return ThoughtMine.findOne({ _id });
     },
     minecraft: async (parent, { gameName }) => {
       return Minecraft.findOne({ gameName })
@@ -117,15 +147,99 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addReactionFortnite: async (parent, { thoughtId, reactionBody }, context) => {
+    addReactionFortnite: async (parent, { thoughtfortniteId, reactionBody }, context) => {
       if (context.user) {
-        const updatedThoughtfortnite = await ThoughtFortnite.findOneAndUpdate(
-          { _id: thoughtId },
+        const updatedThoughtFortnite = await ThoughtFortnite.findOneAndUpdate(
+          { _id: thoughtfortniteId },
           { $push: { reactions: { reactionBody, username: context.user.username } } },
           { new: true, runValidators: true }
         );
 
-        return updatedThoughtfortnite;
+        return updatedThoughtFortnite;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addThoughtApex: async (parent, args, context) => {
+      if (context.user) {
+        const thoughtapex = await ThoughtApex.create({ ...args, username: context.user.username });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { thoughtsapex: thoughtapex._id } },
+          { new: true }
+        );
+ 
+        return thoughtapex;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addReactionApex: async (parent, { thoughtapexId, reactionBody }, context) => {
+      if (context.user) {
+        const updatedThoughtApex = await ThoughtApex.findOneAndUpdate(
+          { _id: thoughtapexId },
+          { $push: { reactions: { reactionBody, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+
+        return updatedThoughtApex;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addThoughtPubg: async (parent, args, context) => {
+      if (context.user) {
+        const thoughtpubg = await ThoughtPubg.create({ ...args, username: context.user.username });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { thoughtspubg: thoughtpubg._id } },
+          { new: true }
+        );
+ 
+        return thoughtpubg;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addReactionPubg: async (parent, { thoughtpubgId, reactionBody }, context) => {
+      if (context.user) {
+        const updatedThoughtPubg = await ThoughtPubg.findOneAndUpdate(
+          { _id: thoughtpubgId },
+          { $push: { reactions: { reactionBody, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+
+        return updatedThoughtPubg;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addThoughtMine: async (parent, args, context) => {
+      if (context.user) {
+        const thoughtmine = await ThoughtMine.create({ ...args, username: context.user.username });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { thoughtsmine: thoughtmine._id } },
+          { new: true }
+        );
+ 
+        return thoughtmine;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addReactionMine: async (parent, { thoughtmineId, reactionBody }, context) => {
+      if (context.user) {
+        const updatedThoughtMine = await ThoughtMine.findOneAndUpdate(
+          { _id: thoughtmineId },
+          { $push: { reactions: { reactionBody, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+
+        return updatedThoughtMine;
       }
 
       throw new AuthenticationError('You need to be logged in!');

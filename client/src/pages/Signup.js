@@ -75,11 +75,40 @@ const Signup = () => {
                 value={formState.password}
                 onChange={handleChange}
               />
-              <select>
+              <h4 className="card-header">Game Console Platforms</h4>
+               <input
+                className="form-input"
+                placeholder="Xbox Gamertag"
+                name="xbox"
+                type="xbox"
+                id="xbox"
+                value={formState.xbox}
+                onChange={handleChange}
+              />
+              <input
+                className="form-input"
+                placeholder="Playstation Gamertag"
+                name="playstation"
+                type="playstation"
+                id="playstation"
+                value={formState.playstation}
+                onChange={handleChange}
+              />
+              <input
+                className="form-input"
+                placeholder="PC Gamertag"
+                name="pc"
+                type="pc"
+                id="pc"
+                value={formState.pc}
+                onChange={handleChange}
+              />
+              
+              {/* <select>
                 <option  value={formState.xbox} onChange={handleChange}>Xbox</option >
                 <option  value={formState.playstation} onChange={handleChange}>Play Station</option >
                 <option  value={formState.pc} onChange={handleChange}>PC</option >
-              </select>
+              </select> */}
     
               
               <button className="btn d-block w-100" type="submit">

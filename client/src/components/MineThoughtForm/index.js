@@ -1,17 +1,40 @@
 import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
-import { ADD_REACTIONFORTNITE } from '../../utils/mutations';
+import { ADD_THOUGHTMINE } from '../../utils/mutations';
+import { QUERY_THOUGHTSMINE, QUERY_ME } from '../../utils/queries';
 
-const FortniteReactionForm = ({ thoughtfortniteId }) => {
-  const [reactionBody, setBody] = useState('');
+const MineThoughtForm = () => {
+  const [thoughtText, setText] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
-  const [addReactionFortnite, { error }] = useMutation(ADD_REACTIONFORTNITE);
+
+  const [addThoughtMine, { error }] = useMutation(ADD_THOUGHTMINE, {
+    update(cache, { data: { addThoughtMine } }) {
+      try {
+        // update thought array's cache
+        // could potentially not exist yet, so wrap in a try/catch
+        const { thoughtsmine } = cache.readQuery({ query: QUERY_THOUGHTSMINE });
+        cache.writeQuery({
+          query: QUERY_THOUGHTSMINE,
+          data: { thoughtsmine: [addThoughtMine, ...thoughtsmine] },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+
+      // update me object's cache
+      const { me } = cache.readQuery({ query: QUERY_ME });
+      cache.writeQuery({
+        query: QUERY_ME,
+        data: { me: { ...me, thoughtsmine: [...me.thoughtsmine, addThoughtMine] } },
+      });
+    },
+  });
 
   // update state based on form input changes
   const handleChange = (event) => {
     if (event.target.value.length <= 280) {
-      setBody(event.target.value);
+      setText(event.target.value);
       setCharacterCount(event.target.value.length);
     }
   };
@@ -21,12 +44,12 @@ const FortniteReactionForm = ({ thoughtfortniteId }) => {
     // event.preventDefault();
 
     try {
-      await addReactionFortnite({
-        variables: { reactionBody, thoughtfortniteId },
+      await addThoughtMine({
+        variables: { thoughtText },
       });
 
       // clear form value
-      setBody('');
+      setText('');
       setCharacterCount(0);
     } catch (e) {
       console.error(e);
@@ -46,20 +69,17 @@ const FortniteReactionForm = ({ thoughtfortniteId }) => {
         onSubmit={handleFormSubmit}
       >
         <textarea
-          placeholder="Leave a reaction to this thought..."
-          value={reactionBody}
+          placeholder="..."
+          value={thoughtText}
           className="form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
-
         <button className="btn col-12 col-md-3" type="submit">
           Submit
         </button>
       </form>
-
-      {error && <div>Something went wrong...</div>}
     </div>
   );
 };
 
-export default FortniteReactionForm;
+export default MineThoughtForm;

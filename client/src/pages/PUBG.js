@@ -1,18 +1,18 @@
 import React from 'react';
 import FollowersList from '../components/FollowersList';
-import ThoughtList from '../components/ThoughtList';
-import ThoughtForm from '../components/ThoughtForm';
+import PubgThoughtList from '../components/PubgThoughtList';
+import PubgThoughtForm from '../components/PubgThoughtForm';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
-import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
+import { QUERY_THOUGHTSPUBG, QUERY_ME_BASIC } from '../utils/queries';
 import image from '../components/GameList/images/pubg.jpeg';
 import FollowForm from '../components/FollowForm'
 
 
 const PUBG = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
+  const { loading, data } = useQuery(QUERY_THOUGHTSPUBG);
   const { data: userData } = useQuery(QUERY_ME_BASIC);
-  const thoughts = data?.thoughts || [];
+  const thoughtspubg = data?.thoughtspubg || [];
 
   const loggedIn = Auth.loggedIn();
 
@@ -22,19 +22,16 @@ const PUBG = () => {
         {loggedIn && (
           <div>
             <img src={image} alt=""></img>
-            <p>Players work with their team to break the enemy Nexus before the enemy team breaks theirs. League of
-              Legends is a complex game which involves both high-level strategy and fast-paced gameplay. Skilled
-              players know how to beat the opponent in front of them, while keeping the macro-elements in mind to
-              support their team to victory.</p>
-            <ThoughtForm />
+            <p>PlауеrUnknоwn’ѕ Battlegrounds, bеttеr knоwn аѕ PUBG, іѕ a multірlауеr battle rоуаlе gаmе іn whісh players drop оntо аn іѕlаnd and fіght tо bе thе last оnе lеft standing.</p>
+            <PubgThoughtForm />
           </div>
         )}
         <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ThoughtList
-              thoughts={thoughts}
+            <PubgThoughtList
+              thoughtspubg={thoughtspubg}
               title="PUBG Feed..."
             />
           )}

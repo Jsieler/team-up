@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
-import { ADD_REACTIONFORTNITE } from '../../utils/mutations';
+import { ADD_REACTIONPUBG } from '../../utils/mutations';
 
-const FortniteReactionForm = ({ thoughtfortniteId }) => {
+const PubgReactionForm = ({ thoughtpubgId }) => {
   const [reactionBody, setBody] = useState('');
   const [characterCount, setCharacterCount] = useState(0);
-  const [addReactionFortnite, { error }] = useMutation(ADD_REACTIONFORTNITE);
+  const [addReactionPubg, { error }] = useMutation(ADD_REACTIONPUBG);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -21,8 +21,8 @@ const FortniteReactionForm = ({ thoughtfortniteId }) => {
     // event.preventDefault();
 
     try {
-      await addReactionFortnite({
-        variables: { reactionBody, thoughtfortniteId },
+      await addReactionPubg({
+        variables: { reactionBody, thoughtpubgId },
       });
 
       // clear form value
@@ -62,4 +62,4 @@ const FortniteReactionForm = ({ thoughtfortniteId }) => {
   );
 };
 
-export default FortniteReactionForm;
+export default PubgReactionForm;

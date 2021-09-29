@@ -1,63 +1,45 @@
 import React from 'react';
-import Auth from '../utils/auth';
-import { QUERY_USER, QUERY_ME } from '../utils/queries';
-import { Redirect, useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
 import FollowersList from '../components/FollowersList';
-import FollowForm from '../components/FollowForm';
-import ThoughtForm from '../components/ThoughtForm';
+import MineThoughtList from '../components/MineThoughtList';
+import MineThoughtForm from '../components/MineThoughtForm';
+import Auth from '../utils/auth';
+import { useQuery } from '@apollo/client';
+import { QUERY_THOUGHTSMINE, QUERY_ME_BASIC } from '../utils/queries';
 import image from '../components/GameList/images/minecraft.jpeg';
-
+import FollowForm from '../components/FollowForm'
 
 
 const Minecraft = () => {
+  const { loading, data } = useQuery(QUERY_THOUGHTSMINE);
+  const { data: userData } = useQuery(QUERY_ME_BASIC);
+  const thoughtsmine= data?.thoughtsmine || [];
 
   const loggedIn = Auth.loggedIn();
-  const { username: userParam } = useParams();
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
-    variables: { username: userParam },
-  });
-
-  const user = data?.me || data?.user || {};
-
-  // redirect to personal profile page if username is yours
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
-    return <Redirect to="/profile" />;
-  }
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!user?.username) {
-    return (
-      <h4>
-        You need to be logged in to see this. Use the navigation links above to
-        sign up or log in!
-      </h4>
-    );
-  }
-
-
 
   return (
     <main>
-      {loggedIn ? (
-        <div className="col-12 col-lg-3 mb-3">
+      <div className="flex-row justify-space-between">
+        {loggedIn && (
           <div>
-            <h1>Minecraft Page</h1>
+            <img src={image} alt=""></img>
+            <p>
+            Minecraft is a first-person survival action / sandbox adventure game where players can gather resources, dig holes, fish, plant crops and more while at night try to avoid monsters.</p>
+            <MineThoughtForm />
           </div>
-          <div>
-
-            <div>
-              <img src={image} alt="minecraft-artwork"></img>
-              <p>Minecraft is a first-person survival action / sandbox adventure game where players can gather resources, dig holes, fish, plant crops and more while at night try to avoid monsters.</p>
-
-              <FollowForm />
-
-            </div>
-
-            <FollowersList
+        )}
+        <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <MineThoughtList
+              thoughtsmine={thoughtsmine}
+              title="Minecraft Feed..."
+            />
+          )}
+        </div>
+        {loggedIn && userData ? (
+          <div className="col-12 col-lg-3 mb-3">
+           <FollowersList
               gameName={"Minecraft"}
               followerCount={2}
               followers={[
@@ -71,16 +53,14 @@ const Minecraft = () => {
                 }
               ]}
             />
-
-            <ThoughtForm />
-            
-
+            <FollowForm />
           </div>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </main>
-
   );
+
+
 };
 
-export default Minecraft;
+export default Minecraft

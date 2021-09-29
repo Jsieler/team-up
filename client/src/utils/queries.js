@@ -62,6 +62,18 @@ export const QUERY_USER = gql`
         createdAt
         reactionCount
       }
+      thoughtsapex {
+        _id
+        thoughtText
+        createdAt
+        reactionCount
+      }
+      thoughtspubg {
+        _id
+        thoughtText
+        createdAt
+        reactionCount
+      }
     }
   }
 `;
@@ -89,6 +101,30 @@ export const QUERY_ME = gql`
         }
       }
       thoughtsfortnite {
+        _id
+        thoughtText
+        createdAt
+        reactionCount
+        reactions {
+          _id
+          createdAt
+          reactionBody
+          username
+        }
+      }
+      thoughtsapex {
+        _id
+        thoughtText
+        createdAt
+        reactionCount
+        reactions {
+          _id
+          createdAt
+          reactionBody
+          username
+        }
+      }
+      thoughtspubg {
         _id
         thoughtText
         createdAt
@@ -177,3 +213,111 @@ export const QUERY_THOUGHTFORTNITE = gql`
   }
 `;
 
+
+export const QUERY_THOUGHTSAPEX = gql`
+  query thoughtsapex($username: String) {
+    thoughtsapex(username: $username) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+
+export const QUERY_THOUGHTAPEX = gql`
+  query thoughtapex($id: ID!) {
+    thoughtapex(_id: $id) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+
+export const QUERY_THOUGHTSPUBG = gql`
+  query thoughtspubg($username: String) {
+    thoughtspubg(username: $username) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+
+export const QUERY_THOUGHTPUBG = gql`
+  query thoughtpubg($id: ID!) {
+    thoughtpubg(_id: $id) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+
+export const QUERY_THOUGHTSMINE = gql`
+  query thoughtsmine($username: String) {
+    thoughtsmine(username: $username) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+
+export const QUERY_THOUGHTMINE = gql`
+  query thoughtmine($id: ID!) {
+    thoughtmine(_id: $id) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;

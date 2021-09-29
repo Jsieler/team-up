@@ -1,18 +1,18 @@
 import React from 'react';
 import FollowersList from '../components/FollowersList';
-import ThoughtList from '../components/ThoughtList';
-import ThoughtForm from '../components/ThoughtForm';
+import ApexThoughtList from '../components/ApexThoughtList';
+import ApexThoughtForm from '../components/ApexThoughtForm';
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
-import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries';
+import { QUERY_THOUGHTSAPEX, QUERY_ME_BASIC } from '../utils/queries';
 import image from '../components/GameList/images/apex.jpeg';
 import FollowForm from '../components/FollowForm'
 
 
 const ApexLegends = () => {
-  const { loading, data } = useQuery(QUERY_THOUGHTS);
+  const { loading, data } = useQuery(QUERY_THOUGHTSAPEX);
   const { data: userData } = useQuery(QUERY_ME_BASIC);
-  const thoughts = data?.thoughts || [];
+  const thoughtsapex= data?.thoughtsapex || [];
 
   const loggedIn = Auth.loggedIn();
 
@@ -24,15 +24,15 @@ const ApexLegends = () => {
             <img src={image} alt=""></img>
             <p>
             Apex Legends is an online multiplayer battle royale game featuring squads of three players using pre-made characters with distinctive abilities, called "Legends", last team standing wins</p>
-            <ThoughtForm />
+            <ApexThoughtForm />
           </div>
         )}
         <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ThoughtList
-              thoughts={thoughts}
+            <ApexThoughtList
+              thoughtsapex={thoughtsapex}
               title="Apex Legend's Feed..."
             />
           )}
