@@ -53,6 +53,7 @@ const typeDefs = gql`
   type Game {
    gameName: String
    followers: [User]
+   }
 
   type ThoughtApex {
     _id: ID
