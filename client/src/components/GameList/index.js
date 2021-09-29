@@ -12,11 +12,11 @@ const GameList = () => {
     <div class="dropdown">
         <button class="special-button">Choose a Game</button>
         <div class="dropdown-content">
-            <a href="/minecraft">Minecraft</a>
-            <a href="/fortnite">Fortnite</a>
-            <a href="/leagueoflegends">League Of Legends</a>
-            <a href="/pubg">PUBG</a>
-            <a href="/apexlegends">Apex Legends</a>
+            <a class="minecraft" href="/minecraft" alt="minecraft"></a>
+            <a class="fortnite" href="/fortnite" alt="fortnite"></a>
+            <a class="league" href="/leagueoflegends" alt="league of legends"></a>
+            <a class="pubg" href="/pubg" alt="player unknown battlegrounds"></a>
+            <a class="apex" href="/apexlegends" alt="apex legends"></a>
         </div>
     </div>
     );
