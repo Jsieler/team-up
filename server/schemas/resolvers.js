@@ -1,5 +1,7 @@
 const { AuthenticationError } = require('apollo-server-express');
+
 const { User, Thought, Minecraft, ThoughtFortnite, ThoughtApex, ThoughtPubg, ThoughtMine } = require('../models');
+
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -79,6 +81,13 @@ const resolvers = {
       return Minecraft.findOne({ gameName })
         .populate('followers');
     },
+    // ========================= game logic ==================================
+    // get all games
+    games: async () => {
+      return Game.find()
+        .select('-__v')
+        .populate('followers');
+    }
   },
 
   Mutation: {
@@ -141,7 +150,7 @@ const resolvers = {
           { $push: { thoughtsfortnite: thoughtfortnite._id } },
           { new: true }
         );
- 
+
         return thoughtfortnite;
       }
 
@@ -270,6 +279,10 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     }
+    // ========================= game logic ==================================
+    // addGame: async (parent, { gameName }, context) => {
+
+    // },
   }
 };
 
