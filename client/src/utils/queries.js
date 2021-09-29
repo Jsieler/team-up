@@ -321,3 +321,16 @@ export const QUERY_THOUGHTMINE = gql`
     }
   }
 `;
+
+export const QUERY_GAME = gql`
+query getGame($gameName: String!) {
+  game(gameName: $gameName){
+    gameName
+    followerCount
+    followers {
+      _id
+      username
+    }
+  }
+}
+`;

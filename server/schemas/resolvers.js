@@ -326,6 +326,19 @@ const resolvers = {
         return gameThought;
 
       }
+    },
+    deleteFollower: async (parent, { gameId, followerId }, context) => {
+      if (context.user) {
+
+        const updatedGame = await Game.findByIdAndUpdate(
+          { _id: gameId },
+          { $pull: { followers: followerId } },
+          { new: true }
+        ).populate('thoughts');
+
+        return updatedGame;
+
+      }
     }
   }
 };

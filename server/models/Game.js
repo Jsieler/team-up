@@ -43,9 +43,9 @@ const gameSchema = new Schema(
 //     return bcrypt.compare(password, this.password);
 // };
 
-// userSchema.virtual('friendCount').get(function () {
-//     return this.friends.length;
-// });
+gameSchema.virtual('followerCount').get(function () {
+    return this.followers.length;
+});
 
 const Game = model('Game', gameSchema);
 

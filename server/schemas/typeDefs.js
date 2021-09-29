@@ -53,6 +53,7 @@ const typeDefs = gql`
   type Game {
     _id: ID
    gameName: String
+   followerCount: Int
    followers: [User]
    thoughts: [Thought]
   }
@@ -153,7 +154,8 @@ const typeDefs = gql`
     addReactionMine(thoughtmineId: ID!, reactionBody: String!): ThoughtMine
     addGame(gameName: String!): Game
     addFollow(gameId: ID!): Game
-    addGameThought(gameId: ID thoughtText: String!): Thought
+    addGameThought(gameId: ID, thoughtText: String!): Thought
+    deleteFollower(gameId: ID! followerId: ID!): Game
   }
 `;
 
