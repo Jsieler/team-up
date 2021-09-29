@@ -331,6 +331,12 @@ query getGame($gameName: String!) {
       _id
       username
     }
+    thoughts{
+      _id
+      thoughtText
+      username
+      createdAt
+    }
   }
 }
 `;
