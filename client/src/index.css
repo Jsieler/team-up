@@ -1344,7 +1344,7 @@ nav a:hover {
 }
 
 @media (min-width: 768px) {
-  .button-56 {
+  .special-button {
     padding: 0 40px;
   }
 }
