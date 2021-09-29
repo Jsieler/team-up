@@ -11,12 +11,14 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    
-    <header className="bg-secondary mb-4 py-2 flex-row align-center yellow">
+
+
+    <header className="bg-secondary mb-4 py-2 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center vex">
-        <Link to="/" class="move-left">
-          
-          <h2>Team-UP</h2>
+        <Link to="/" className="move-left">
+
+          <h1>Team-UP</h1>
+
           <img src={imageXbox} alt=""></img>
           <img src={imagePlaystation} alt=""></img>
           <img src={imagePC} alt=""></img>
@@ -26,15 +28,15 @@ const Header = () => {
         <nav className="text-center">
           {Auth.loggedIn() ? (
             <>
-              <Link to="/profile" class="btn">Me</Link>
-              <a class="btn" href="/" onClick={logout}>
+              <Link to="/profile" className="btn">Me</Link>
+              <a className="btn" href="/" onClick={logout}>
                 Logout
               </a>
             </>
           ) : (
             <>
-              <Link to="/login" class="btn">Login</Link>
-              <Link to="/signup" class="btn">Signup</Link>
+              <Link to="/login" className="btn">Login</Link>
+              <Link to="/signup" className="btn">Signup</Link>
             </>
           )}
         </nav>

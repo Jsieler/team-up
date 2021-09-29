@@ -21,6 +21,7 @@ import ApexLegends from './pages/ApexLegends';
 import Fortnite from './pages/Fortnite';
 import LeagueOfLegends from './pages/LeagueOfLegends';
 import PUBG from './pages/PUBG';
+import Game from './pages/Game'
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -63,6 +64,7 @@ function App() {
               <Route exact path="/apexlegends" component={ApexLegends} />
               <Route exact path="/pubg" component={PUBG} />
               <Route exact path="/leagueoflegends" component={LeagueOfLegends} />
+              <Route exact path="/game/:id" component={Game} />
 
               <Route component={NoMatch} />
             </Switch>

@@ -1,7 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 
-const { User, Thought, Minecraft, ThoughtFortnite, ThoughtApex, ThoughtPubg, ThoughtMine } = require('../models');
-
+const { User, Thought, Minecraft, ThoughtFortnite, ApexThoughts, ThoughtPubg, ThoughtMine, Game } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -30,7 +29,8 @@ const resolvers = {
         .populate('thoughtsfortnite')
         .populate('thoughtsapex')
         .populate('thoughtspubg')
-        .populate('thoughtsmine');
+        .populate('thoughtsmine')
+        .populate('games');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username })
@@ -40,7 +40,8 @@ const resolvers = {
         .populate('thoughtsfortnite')
         .populate('thoughtsapex')
         .populate('thoughtspubg')
-        .populate('thoughtsmine');
+        .populate('thoughtsmine')
+        .populate('games');
     },
     thoughts: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -86,7 +87,15 @@ const resolvers = {
     games: async () => {
       return Game.find()
         .select('-__v')
-        .populate('followers');
+        .populate('followers')
+        .populate('thoughts');
+    },
+    // get single game
+    game: async (parent, { gameName }) => {
+      return Game.findOne({ gameName })
+        .select('-__v')
+        .populate('followers')
+        .populate('thoughts');
     }
   },
 
@@ -171,14 +180,14 @@ const resolvers = {
     },
     addThoughtApex: async (parent, args, context) => {
       if (context.user) {
-        const thoughtapex = await ThoughtApex.create({ ...args, username: context.user.username });
+        const thoughtapex = await ApexThoughts.create({ ...args, username: context.user.username });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $push: { thoughtsapex: thoughtapex._id } },
           { new: true }
         );
- 
+
         return thoughtapex;
       }
 
@@ -206,7 +215,7 @@ const resolvers = {
           { $push: { thoughtspubg: thoughtpubg._id } },
           { new: true }
         );
- 
+
         return thoughtpubg;
       }
 
@@ -234,7 +243,7 @@ const resolvers = {
           { $push: { thoughtsmine: thoughtmine._id } },
           { new: true }
         );
- 
+
         return thoughtmine;
       }
 
@@ -266,23 +275,71 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
-    addFollower: async (parent, { followerId }, context) => {
-      if (context.user) {
-        const updatedMinecraft = await Minecraft.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { followers: followerId } },
-          { new: true }
-        ).populate('followers');
+    // addFollower: async (parent, { followerId }, context) => {
+    //   if (context.user) {
+    //     const updatedMinecraft = await Minecraft.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $addToSet: { followers: followerId } },
+    //       { new: true }
+    //     ).populate('followers');
 
-        return updatedMinecraft;
+    //     return updatedMinecraft;
+    //   }
+
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
+    // ========================= game logic ==================================
+    addGame: async (parent, gameName) => {
+      const game = await Game.create(gameName);
+
+      return game;
+    },
+    addFollow: async (parent, { gameId }, context) => {
+      if (context.user) {
+        const updatedGame = await Game.findOneAndUpdate(
+          { _id: gameId },
+          { $push: { followers: { _id: context.user._id } } },
+          { new: true, runValidators: true }
+        ).populate('followers')
+
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { games: { _id: gameId } } },
+          { new: true, runValidators: true }
+        ).populate('games')
+
+        return updatedGame;
       }
 
       throw new AuthenticationError('You need to be logged in!');
-    }
-    // ========================= game logic ==================================
-    // addGame: async (parent, { gameName }, context) => {
+    },
+    addGameThought: async (parent, { gameId, thoughtText }, context) => {
+      if (context.user) {
+        const gameThought = await Thought.create({ thoughtText, username: context.user.username })
 
-    // },
+        await Game.findByIdAndUpdate(
+          { _id: gameId },
+          { $push: { thoughts: gameThought._id } },
+          { new: true }
+        ).populate('thoughts');
+
+        return gameThought;
+
+      }
+    },
+    deleteFollower: async (parent, { gameId, followerId }, context) => {
+      if (context.user) {
+
+        const updatedGame = await Game.findByIdAndUpdate(
+          { _id: gameId },
+          { $pull: { followers: followerId } },
+          { new: true }
+        ).populate('thoughts');
+
+        return updatedGame;
+
+      }
+    }
   }
 };
 

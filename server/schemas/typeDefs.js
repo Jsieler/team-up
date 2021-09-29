@@ -15,6 +15,7 @@ const typeDefs = gql`
     xbox: String
     playstation: String
     pc: String
+    games: [Game]
   }
 
   type Thought {
@@ -49,11 +50,15 @@ const typeDefs = gql`
     username: String
   }
 
-
   type Game {
+    _id: ID
    gameName: String
+   followerCount: Int
    followers: [User]
-   }
+
+   thoughts: [Thought]
+  }
+
 
   type ThoughtApex {
     _id: ID
@@ -131,6 +136,7 @@ const typeDefs = gql`
     thoughtmine(_id: ID!): ThoughtMine
     minecraft: Minecraft
     games: [Game]
+    game(gameName: String!): Game
   }
 
   type Mutation {
@@ -148,6 +154,10 @@ const typeDefs = gql`
     addReactionPubg(thoughtpubgId: ID!, reactionBody: String!): ThoughtPubg
     addThoughtMine(thoughtText: String!): ThoughtMine
     addReactionMine(thoughtmineId: ID!, reactionBody: String!): ThoughtMine
+    addGame(gameName: String!): Game
+    addFollow(gameId: ID!): Game
+    addGameThought(gameId: ID, thoughtText: String!): Thought
+    deleteFollower(gameId: ID! followerId: ID!): Game
   }
 `;
 

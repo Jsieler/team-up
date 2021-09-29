@@ -13,6 +13,12 @@ const gameSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'User'
             }
+        ],
+        thoughts: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'Thought'
+            }
         ]
     },
     {
@@ -37,10 +43,10 @@ const gameSchema = new Schema(
 //     return bcrypt.compare(password, this.password);
 // };
 
-// userSchema.virtual('friendCount').get(function () {
-//     return this.friends.length;
-// });
+gameSchema.virtual('followerCount').get(function () {
+    return this.followers.length;
+});
 
-const User = model('Game', gameSchema);
+const Game = model('Game', gameSchema);
 
-module.exports = User;
+module.exports = Game;

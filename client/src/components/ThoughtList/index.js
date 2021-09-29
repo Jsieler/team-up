@@ -25,9 +25,9 @@ const ThoughtList = ({ thoughts, title }) => {
             <div className="card-body">
               <Link to={`/thought/${thought._id}`}>
                 <p>{thought.thoughtText}</p>
-                <p className="mb-0">
+                {/* <p className="mb-0">
                   Comments: {thought.reactionCount} 
-                </p>
+                </p> */}
               </Link>
             </div>
           </div>
