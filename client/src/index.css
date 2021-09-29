@@ -5,6 +5,7 @@
   --quatrinary: #cadbda;
   --light: #e1f5f4;
   --dark: #090a0a;
+  --yellow: #f5ed00;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -117,7 +118,7 @@ nav a:hover {
   border: none;
   color: var(--dark);
   outline: none;
-  background-color: var(--secondary);
+  /* background-color: var(--secondary); */
   transition: all 0.5s;
 }
 
@@ -1254,45 +1255,161 @@ nav a:hover {
   }
 }
 .dropbtn {
-  background-color: var(--secondary);
+  background-color: var(--yellow);
   color: var(--dark);
   padding: 16px;
   font-size: 25px;
   border: none;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
 .dropdown-content {
   display: none;
-  position: absolute;
   font-family: 'Karla', sans-serif;
-  background-color: var(--secondary);
+  background-color: var(--dark);
+  color: var(--yellow);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  /* transition: 3s; */
 }
 
 .dropdown-content a {
-  color: black;
+  color: var(--yellow);
+  font-size: 20px;
+  text-align: center;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  transition: 0.5s 
+  /* transition: 3s; */
 }
 
-.dropdown-content a:hover {
-  background-color: var(--dark);
-  color: var(--secondary);
-}
+/* .dropdown-content a:hover {
+  background: var(--yellow);
+  color: var(--dark);
+} */
 
 .dropdown:hover .dropdown-content {display: block;}
 
-.dropdown:hover .dropbtn {background-color: var(--dark)}
+.dropdown:hover .dropbtn {
+  background-color: var(--dark);
+}
 
 .move-left {
   margin-left: 28vw;
 }
 
+.yellow {
+  background:
+    linear-gradient(90deg, #f5ed00 70%, #e6de00 70%), #fff700;
+}
+
+/* CSS */
+
+.dropdown-content {
+  margin-top: 10px;
+  background-color: var(--yellow);
+}
+
+.special-button {
+  align-items: center;
+  background-color: #f5ed00;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  display: flex;
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  height: 50px;
+  justify-content: center;
+  line-height: 24px;
+  padding: 0 25px;
+  position: relative;
+  margin-left: 44%;
+}
+
+.special-button:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
+
+@media (min-width: 768px) {
+  .special-button {
+    padding: 0 40px;
+  }
+}
+
+.minecraft {
+  background: url("../src/images/minecraft.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  height: 130px;
+}
+
+.minecraft:hover {
+  opacity: 0.5;
+  color: white;
+  margin-left: 300px;
+}
+
+.fortnite {
+  background: url("../src/images/fortnite.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  height: 130px;
+}
+
+.fortnite:hover {
+  opacity: 0.6;
+  color: white;
+  margin-left: 300px;
+}
+
+.league {
+  background: url("../src/images/league.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  height: 130px;
+}
+
+.league:hover {
+  opacity: 0.6;
+  color: white;
+  margin-left: 300px;
+}
+
+.pubg {
+  background: url("../src/images/pubg.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  height: 130px;
+}
+
+.pubg:hover {
+  opacity: 0.6;
+  color: white;
+  margin-left: 300px;
+}
+
+.apex {
+  background: url("../src/images/apex.png");
+  background-position: left;
+  background-repeat: no-repeat;
+  height: 130px;
+}
+
+.apex:hover {
+  opacity: 0.6;
+  color: white;
+  margin-left: 300px;
+}

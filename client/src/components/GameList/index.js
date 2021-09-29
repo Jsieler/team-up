@@ -5,6 +5,7 @@ const GameList = () => {
 
     return (
 
+
         <div className="dropdown">
             <button className="dropbtn btn d-block w-30">Choose a Game</button>
             <div className="dropdown-content">
@@ -14,7 +15,11 @@ const GameList = () => {
                 <a href="/pubg">PUBG</a>
                 <a href="/apexlegends">Apex Legends</a>
             </div>
-        </div>
+
+    //     <button class="special-button dropdown">
+    //     Choose a Game<span aria-hidden></span>
+    //   </button>
+
     );
 };
 
