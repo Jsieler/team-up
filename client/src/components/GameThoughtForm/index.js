@@ -2,49 +2,55 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 import { ADD_GAMETHOUGHT } from '../../utils/mutations';
-import { QUERY_GAME, QUERY_GAMETHOUGHTS } from '../../utils/queries';
+import { QUERY_GAME } from '../../utils/queries';
 
-const GameThoughtForm = ({ gameId, gameUrl }) => {
+const GameThoughtForm = ({ gameId, gameUrl, gameData }) => {
     const [thoughtText, setText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
 
-    // console.log({ gameUrl });
+    console.log(gameData._id);
 
     const [addThought, { error }] = useMutation(ADD_GAMETHOUGHT, {
         update(cache, { data: { addThought } }) {
             // try {
-            //     // console.log({ gameUrl });
-            //     // update thought array's cache
-            //     // could potentially not exist yet, so wrap in a try/catch
-            //     const { thoughts } = cache.readQuery({
-            //         query: QUERY_GAMETHOUGHTS,
-            //         variables: { gameUrl: "minecraft" }
-            //     });
-            //     // console.log({ thoughts })
-            //     cache.writeQuery({
-            //         query: QUERY_GAMETHOUGHTS,
-            //         data: { thoughts: [addThought, ...thoughts] },
-            //     });
+            //   // update thought array's cache
+            //   // could potentially not exist yet, so wrap in a try/catch
+            //   const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+            //   cache.writeQuery({
+            //     query: QUERY_THOUGHTS,
+            //     data: { thoughts: [addThought, ...thoughts] },
+            //   });
             // } catch (e) {
-            //     console.error(e);
+            //   console.error(e);
             // }
 
-            try {
+            // update me object's cache
+            const { game } = cache.readQuery({
+                query: QUERY_GAME,
+                variables: { gameUrl }
+            });
+            console.log([game.thoughts]);
+            console.log(game);
 
-                // update me object's cache
-                const { game } = cache.readQuery({
-                    query: QUERY_GAME,
-                    variable: { gameUrl }
-                });
-                cache.writeQuery({
-                    query: QUERY_GAME,
-                    data: { game: { ...game, thoughts: [...game.thoughts, addThought] } },
-                });
+            console.log(game._id);
+            cache.writeQuery({
+                query: QUERY_GAME,
+                data: { // Contains the data to write
+                    game: {
+                        __typename: 'Game',
+                        _id: game._id,
+                        description: game.description,
+                        followerCount: game.followerCount,
+                        gameName: game.gameName,
+                        gameUrl: game.gameUrl,
+                        image: game.image,
+                        followers: [game.followers],
+                        thoughts: [game.thoughts]
+                    },
+                },
+                variables: { gameUrl }
 
-            } catch (e) {
-                console.error(e);
-            }
-
+            });
         },
     });
 
@@ -58,7 +64,7 @@ const GameThoughtForm = ({ gameId, gameUrl }) => {
 
     // submit form
     const handleFormSubmit = async (event) => {
-        event.preventDefault();
+        // event.preventDefault();
 
         try {
             await addThought({

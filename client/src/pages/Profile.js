@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
+import { Modal } from 'react-bootstrap';
+import useSound from 'use-sound';
 
 import ThoughtForm from '../components/ThoughtForm';
 import ThoughtList from '../components/ThoughtList';
@@ -17,28 +19,47 @@ import Auth from '../utils/auth';
 
 const Profile = (props) => {
 
+  // VARIABLES FOR MODAL
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  // LOGIC FOR SOUND
+  const [play] = useSound('/sounds/friend.wav');
+
+  // LOGIC FOR CHECKING IF USER IS LOGGED IN
   const logIn = Auth.loggedIn();
 
   console.log(logIn);
 
+  // RETRIEVING USER ID FROM URL
   const { username: userParam } = useParams();
 
+  // MUTATIONS IMPORTED FOR PAGE USE
   const [addFriend] = useMutation(ADD_FRIEND);
+
+  // LOADING USER DATA
   const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
   const user = data?.me || data?.user || {};
 
+  console.log(user);
+  console.log(data);
+
   // redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
     return <Redirect to="/profile" />;
   }
 
+  // MESSAGE WHILE DATA IS LOADING
   if (loading) {
     return <div>Loading...</div>;
   }
 
+  // MESSAGE IF USER IS NOT LOGGED IN
   if (!user?.username) {
     return (
       <h4>
@@ -53,11 +74,16 @@ const Profile = (props) => {
       await addFriend({
         variables: { id: user._id },
       });
+
+      handleShow();
+
+      play();
+
     } catch (e) {
       console.error(e);
     }
-  };
 
+  };
 
 
   return (
@@ -109,10 +135,17 @@ const Profile = (props) => {
             pc={user.pc}
           />
         </div>
+
+        <Modal className="friend-modal" show={show} onHide={handleClose}>
+          <img src="/images/smiley.png" className="smiley-face" alt="friend-added" />
+          <p className="smiley-text">ADDED!</p>
+        </Modal>
+
       </div>
       <div className="mb-3">{!userParam && <ThoughtForm />}</div>
-    </div>
+    </div >
   );
 };
+
 
 export default Profile;
