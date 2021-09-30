@@ -217,3 +217,15 @@ export const ADD_REACTIONMINE = gql`
     }
   }
 `;
+
+export const ADD_FOLLOW = gql`
+mutation addFollow($gameId: ID!) {
+  addFollow(gameId: $gameId) {
+    _id
+    gameName
+    followers {
+      username
+    }
+  }
+}
+`;

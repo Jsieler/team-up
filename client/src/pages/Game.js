@@ -5,6 +5,7 @@ import { QUERY_GAME } from '../utils/queries';
 // import Auth from '../utils/auth';
 import FollowersList from '../components/FollowersList';
 import ThoughtList from '../components/ThoughtList'
+import FollowGameButton from '../components/FolllowGameButton'
 
 // import ReactionList from '../components/ReactionList';
 // import ReactionForm from '../components/ReactionForm';
@@ -12,13 +13,13 @@ import ThoughtList from '../components/ThoughtList'
 const Game = () => {
 
     // ============== LOADS DATA ON GAME FROM DATABASE ================
-    const { id: gameName } = useParams();
+    const { id: gameUrl } = useParams();
 
     // const mockData = { gameName: 'Minecraft' }
-    // console.log({ id: gameName });
+    // console.log(gameUrl);
 
     const { loading, data } = useQuery(QUERY_GAME, {
-        variables: { gameName }
+        variables: { gameUrl }
     });
 
     const game = data?.game || null;
@@ -66,6 +67,11 @@ const Game = () => {
                         <ThoughtList
                             thoughts={game.thoughts}
                             title={game.gameName}
+                        />
+                    </div>
+                    <div>
+                        <FollowGameButton
+                            gameId={game._id}
                         />
                     </div>
                 </div>
