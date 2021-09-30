@@ -19,10 +19,10 @@ const Header = () => {
         <img src={imageXbox} alt=""></img>
           <img src={imagePlaystation} alt=""></img>
           <img src={imagePC} alt=""></img>
-          <div class="parent">
-          <div class ="logo"><h1>Team UP</h1></div>
-          <div class ="boxtwo"></div>
-          <div class="boxone">
+          <div className="parent">
+          <div className ="logo"><h1>Team UP</h1></div>
+          <div className ="boxtwo"></div>
+          <div className="boxone">
           {Auth.loggedIn() ? (
             <>
               <Link to="/profile" className="btn">Me</Link>
