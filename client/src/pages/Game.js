@@ -5,6 +5,7 @@ import { QUERY_GAME } from '../utils/queries';
 // import Auth from '../utils/auth';
 import FollowersList from '../components/FollowersList';
 import ThoughtList from '../components/ThoughtList'
+import FollowGameButton from '../components/FolllowGameButton'
 
 // import ReactionList from '../components/ReactionList';
 // import ReactionForm from '../components/ReactionForm';
@@ -66,6 +67,11 @@ const Game = () => {
                         <ThoughtList
                             thoughts={game.thoughts}
                             title={game.gameName}
+                        />
+                    </div>
+                    <div>
+                        <FollowGameButton
+                            gameId={game._id}
                         />
                     </div>
                 </div>
