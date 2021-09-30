@@ -194,12 +194,28 @@ const resolvers = {
     },
     deleteGame: async (parent, { gameId }) => {
 
-      const updatedGame = await Game.deleteOne(
-        { _id: gameId },
-        { new: true }
+      const deleteGame = await Game.deleteOne(
+        { _id: gameId }
       );
 
-      return updatedGame;
+      const updatedGames = await Game.find()
+        .select('-__v')
+        .populate('followers')
+        .populate('thoughts');
+
+      return updatedGames;
+
+    },
+    deleteGames: async () => {
+
+      const deleteGames = await Game.deleteMany();
+
+      const updatedGames = await Game.find()
+        .select('-__v')
+        .populate('followers')
+        .populate('thoughts');
+
+      return updatedGames;
 
     }
   }

@@ -36,6 +36,7 @@ const typeDefs = gql`
    gameName: String
    gameUrl: String
    description: String
+   image: String
    followerCount: Int
    followers: [User]
    thoughts: [Thought]
@@ -67,6 +68,7 @@ const typeDefs = gql`
     addGameThought(gameId: ID, thoughtText: String!): Thought
     deleteFollower(gameId: ID! followerId: ID!): Game
     deleteGame(gameId: ID!): Game
+    deleteGames: [Game]
   }
 `;
 
