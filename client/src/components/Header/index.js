@@ -13,19 +13,16 @@ const Header = () => {
   return (
 
 
-    <header className="bg-secondary mb-4 py-2 flex-row align-center yellow">
-      <div className="container flex-row justify-space-between-lg justify-center align-center vex">
-        <Link to="/" className="move-left">
-
-          <h1>Team-UP</h1>
-
-          <img src={imageXbox} alt=""></img>
+    <header className="head">
+      <div className="container">
+        <Link to="/" className="">
+        <img src={imageXbox} alt=""></img>
           <img src={imagePlaystation} alt=""></img>
           <img src={imagePC} alt=""></img>
-
-        </Link>
-
-        <nav className="text-center">
+          <div class="parent">
+          <div class ="logo"><h1>Team UP</h1></div>
+          <div class ="boxtwo"></div>
+          <div class="boxone">
           {Auth.loggedIn() ? (
             <>
               <Link to="/profile" className="btn">Me</Link>
@@ -38,8 +35,11 @@ const Header = () => {
               <Link to="/login" className="btn">Login</Link>
               <Link to="/signup" className="btn">Signup</Link>
             </>
-          )}
-        </nav>
+          )}</div>
+          </div>
+
+        </Link>
+
       </div>
     </header>
   );
