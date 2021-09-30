@@ -10,17 +10,17 @@ const ThoughtForm = () => {
 
   const [addThought, { error }] = useMutation(ADD_THOUGHT, {
     update(cache, { data: { addThought } }) {
-      try {
-        // update thought array's cache
-        // could potentially not exist yet, so wrap in a try/catch
-        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
-        cache.writeQuery({
-          query: QUERY_THOUGHTS,
-          data: { thoughts: [addThought, ...thoughts] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
+      // try {
+      //   // update thought array's cache
+      //   // could potentially not exist yet, so wrap in a try/catch
+      //   const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+      //   cache.writeQuery({
+      //     query: QUERY_THOUGHTS,
+      //     data: { thoughts: [addThought, ...thoughts] },
+      //   });
+      // } catch (e) {
+      //   console.error(e);
+      // }
 
       // update me object's cache
       const { me } = cache.readQuery({ query: QUERY_ME });
@@ -41,7 +41,7 @@ const ThoughtForm = () => {
 
   // submit form
   const handleFormSubmit = async (event) => {
-    // event.preventDefault();
+    event.preventDefault();
 
     try {
       await addThought({
