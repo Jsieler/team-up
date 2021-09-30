@@ -1275,6 +1275,9 @@ nav a:hover {
 .dropdown-content a {
   font-size: 0px;
   text-align: center;
+  color: white;
+  font-weight: bolder;
+
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -1348,7 +1351,7 @@ nav a:hover {
 }
 
 .minecraft {
-  background: url("../src/images/minecraft.png");
+  background: url("../src/images/Minecraft.png");
   background-position: left;
   background-repeat: no-repeat;
   height: 130px;
@@ -1362,27 +1365,27 @@ nav a:hover {
 }
 
 .fortnite {
-  background: url("../src/images/fortnite.png");
+  background: url("../src/images/Fortnite.png");
   background-position: left;
   background-repeat: no-repeat;
   height: 130px;
 }
 
 .fortnite:hover {
-  opacity: 0.6;
+  opacity: 1.0;
   color: white;
   transform: scale(0.5);
 }
 
 .league {
-  background: url("../src/images/league.png");
+  background: url("../src/images/League.png");
   background-position: left;
   background-repeat: no-repeat;
   height: 130px;
 }
 
 .league:hover {
-  opacity: 0.6;
+  opacity: 1.0;
   color: white;
   transform: scale(0.5);
 }
@@ -1395,7 +1398,7 @@ nav a:hover {
 }
 
 .pubg:hover {
-  opacity: 0.6;
+  opacity: 1.0;
   color: white;
   transform: scale(0.5);
 }
@@ -1408,7 +1411,9 @@ nav a:hover {
 }
 
 .apex:hover {
-  opacity: 0.6;
+  opacity: 1.0;
   color: white;
   transform: scale(0.5);
 }
+}
+
