@@ -8,6 +8,8 @@ import { ADD_FOLLOW } from '../../utils/mutations';
 const FollowGameButton = ({ gameId }) => {
     // const { username: userParam } = useParams();
 
+    console.log(gameId);
+
     const [addFollow] = useMutation(ADD_FOLLOW);
 
     // const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
@@ -20,7 +22,7 @@ const FollowGameButton = ({ gameId }) => {
 
         try {
             await addFollow({
-                variables: { gameId: gameId },
+                variables: { gameId },
             });
         } catch (e) {
             console.error(e);
