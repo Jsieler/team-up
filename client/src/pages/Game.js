@@ -21,7 +21,7 @@ const Game = () => {
         variables: { gameName }
     });
 
-    const game = data?.game || {};
+    const game = data?.game || null;
 
     console.log(game);
 
@@ -34,29 +34,46 @@ const Game = () => {
         return <div>Loading...</div>;
     }
 
-    return (
-        <main>
-            <div className="flex-row justify-space-between">
-                <div>
-                    <p>{game.gameName}</p>
-                </div>
-                <div>
-                    <FollowersList
-                        gameName={game.gameName}
-                        followerCount={game.followerCount}
-                        followers={game.followers}
-                    />
-                </div>
-                <div>
-                    <ThoughtList
-                        thoughts={game.thoughts}
-                        title={game.gameName}
-                    />
-                </div>
-            </div>
-        </main >
+    if (game === null) {
 
-    );
+        return (
+            <main>
+                <div className="flex-row justify-space-between">
+                    <div>
+                        <p>This game was not found!</p>
+                    </div>
+                </div>
+            </main >
+
+        );
+
+    } else {
+
+        return (
+            <main>
+                <div className="flex-row justify-space-between">
+                    <div>
+                        <p>{game.gameName}</p>
+                    </div>
+                    <div>
+                        <FollowersList
+                            gameName={game.gameName}
+                            followerCount={game.followerCount}
+                            followers={game.followers}
+                        />
+                    </div>
+                    <div>
+                        <ThoughtList
+                            thoughts={game.thoughts}
+                            title={game.gameName}
+                        />
+                    </div>
+                </div>
+            </main >
+
+        );
+
+    }
 
 };
 
