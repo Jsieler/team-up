@@ -1,6 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 
-const { User, Thought, Minecraft, ThoughtFortnite, ApexThoughts, ThoughtPubg, ThoughtMine, Game } = require('../models');
+const { User, Thought, Game } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -11,10 +11,6 @@ const resolvers = {
           .select('-__v -password')
           .populate('thoughts')
           .populate('friends')
-          .populate('thoughtsfortnite')
-          .populate('thoughtsapex')
-          .populate('thoughtspubg')
-          .populate('thoughtsmine');
 
         return userData;
       }
@@ -26,10 +22,6 @@ const resolvers = {
         .select('-__v -password')
         .populate('thoughts')
         .populate('friends')
-        .populate('thoughtsfortnite')
-        .populate('thoughtsapex')
-        .populate('thoughtspubg')
-        .populate('thoughtsmine')
         .populate('games');
     },
     user: async (parent, { username }) => {

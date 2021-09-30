@@ -126,20 +126,6 @@ export const QUERY_ME_BASIC = gql`
   }
 `;
 
-export const QUERY_MINECRAFT = gql`
-  {
-    minecraft {
-      _id
-     gameName
-      followerCount
-      followers {
-        _id
-        username
-      }
-    }
-  }
-`;
-
 export const QUERY_GAME = gql`
 query getGame($gameUrl: String!) {
   game(gameUrl: $gameUrl){
