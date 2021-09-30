@@ -8,7 +8,7 @@ import { ADD_FOLLOW } from '../../utils/mutations';
 const FollowGameButton = ({ gameId }) => {
     // const { username: userParam } = useParams();
 
-    console.log(gameId);
+    // console.log(gameId);
 
     const [addFollow] = useMutation(ADD_FOLLOW);
 

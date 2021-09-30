@@ -72,6 +72,8 @@ const Game = () => {
                         <ThoughtList
                             thoughts={game.thoughts}
                             title={game.gameName}
+
+
                         />
                     </div>
                     {loggedIn ? (
@@ -79,6 +81,7 @@ const Game = () => {
                             <GameThoughtForm
                                 gameId={game._id}
                                 gameUrl={game.gameUrl}
+                                gameData={game}
                             />
                         </div>
                     ) : null}

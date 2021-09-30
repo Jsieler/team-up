@@ -4,9 +4,11 @@ import { useMutation } from '@apollo/client';
 import { ADD_GAMETHOUGHT } from '../../utils/mutations';
 import { QUERY_GAME } from '../../utils/queries';
 
-const GameThoughtForm = ({ gameId, gameUrl }) => {
+const GameThoughtForm = ({ gameId, gameUrl, gameData }) => {
     const [thoughtText, setText] = useState('');
     const [characterCount, setCharacterCount] = useState(0);
+
+    console.log(gameData._id);
 
     const [addThought, { error }] = useMutation(ADD_GAMETHOUGHT, {
         update(cache, { data: { addThought } }) {
@@ -27,11 +29,28 @@ const GameThoughtForm = ({ gameId, gameUrl }) => {
                 query: QUERY_GAME,
                 variables: { gameUrl }
             });
-            console.log({ game });
-            // cache.writeQuery({
-            //     query: QUERY_ME,
-            //     data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
-            // });
+            console.log([game.thoughts]);
+            console.log(game);
+
+            console.log(game._id);
+            cache.writeQuery({
+                query: QUERY_GAME,
+                data: { // Contains the data to write
+                    game: {
+                        __typename: 'Game',
+                        _id: game._id,
+                        description: game.description,
+                        followerCount: game.followerCount,
+                        gameName: game.gameName,
+                        gameUrl: game.gameUrl,
+                        image: game.image,
+                        followers: [game.followers],
+                        thoughts: [game.thoughts]
+                    },
+                },
+                variables: { gameUrl }
+
+            });
         },
     });
 
@@ -45,7 +64,7 @@ const GameThoughtForm = ({ gameId, gameUrl }) => {
 
     // submit form
     const handleFormSubmit = async (event) => {
-        event.preventDefault();
+        // event.preventDefault();
 
         try {
             await addThought({
