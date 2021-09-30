@@ -1,13 +1,15 @@
 import React from 'react';
 // import React, { useState } from 'react';
-// import { useQuery, useMutation } from '@apollo/client';
-// import { ADD_FOLLOWER } from '../../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { ADD_FOLLOW } from '../../utils/mutations';
 // import { QUERY_MINECRAFT, QUERY_ME } from '../../utils/queries';
 
-const FollowGameButton = (props) => {
+
+const FollowGameButton = ({ gameId }) => {
     // const { username: userParam } = useParams();
 
-    // const [addFollower] = useMutation(ADD_FOLLOWER);
+    const [addFollow] = useMutation(ADD_FOLLOW);
+
     // const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     //   variables: { username: userParam },
     // });
@@ -15,13 +17,15 @@ const FollowGameButton = (props) => {
 
     // // submit form
     const handleClick = async () => {
-        // try {
-        //   await addFollower({
-        //     variables: { id: user._id },
-        //   });
-        // } catch (e) {
-        //   console.error(e);
-        // }
+
+        try {
+            await addFollow({
+                variables: { gameId: gameId },
+            });
+        } catch (e) {
+            console.error(e);
+            alert('You must be logged in!');
+        }
 
     };
 

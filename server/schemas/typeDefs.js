@@ -7,10 +7,6 @@ const typeDefs = gql`
     email: String
     friendCount: Int
     thoughts: [Thought]
-    thoughtsfortnite: [ThoughtFortnite]
-    thoughtsapex: [ThoughtApex]
-    thoughtspubg: [ThoughtPubg]
-    thoughtsmine: [ThoughtMine]
     friends: [User]
     xbox: String
     playstation: String
@@ -34,21 +30,6 @@ const typeDefs = gql`
     username: String
   }
 
-  type ThoughtFortnite {
-    _id: ID
-    thoughtText: String
-    createdAt: String
-    username: String
-    reactionCount: Int
-    reactions: [ReactionFortnite]
-  }
-
-  type ReactionFortnite {
-    _id: ID
-    reactionBody: String
-    createdAt: String
-    username: String
-  }
 
   type Game {
     _id: ID
@@ -59,38 +40,6 @@ const typeDefs = gql`
    thoughts: [Thought]
   }
 
-
-  type ThoughtApex {
-    _id: ID
-    thoughtText: String
-    createdAt: String
-    username: String
-    reactionCount: Int
-    reactions: [ReactionApex]
-  }
-
-  type ReactionApex {
-    _id: ID
-    reactionBody: String
-    createdAt: String
-    username: String
-  }
-
-  type ThoughtPubg {
-    _id: ID
-    thoughtText: String
-    createdAt: String
-    username: String
-    reactionCount: Int
-    reactions: [ReactionPubg]
-  }
-
-  type ReactionPubg {
-    _id: ID
-    reactionBody: String
-    createdAt: String
-    username: String
-  }
 
   type ThoughtMine {
     _id: ID
@@ -109,12 +58,6 @@ const typeDefs = gql`
 
   }
 
-  type Minecraft {
-    _id: ID
-    gameName: String
-    followers: [User]
-  }
-
   type Auth {
     token: ID!
     user: User
@@ -126,15 +69,8 @@ const typeDefs = gql`
     user(username: String!): User
     thoughts(username: String): [Thought]
     thought(_id: ID!): Thought
-    thoughtsfortnite(username: String): [ThoughtFortnite]
-    thoughtfortnite(_id: ID!): ThoughtFortnite
-    thoughtsapex(username: String): [ThoughtApex]
-    thoughtapex(_id: ID!): ThoughtApex
-    thoughtspubg(username: String): [ThoughtPubg]
-    thoughtpubg(_id: ID!): ThoughtPubg
     thoughtsmine(username: String): [ThoughtMine]
     thoughtmine(_id: ID!): ThoughtMine
-    minecraft: Minecraft
     games: [Game]
     game(gameUrl: String!): Game
   }
@@ -145,15 +81,6 @@ const typeDefs = gql`
     addThought(thoughtText: String!): Thought
     addReaction(thoughtId: ID!, reactionBody: String!): Thought
     addFriend(friendId: ID!): User
-    addFollower(followerId: ID!): Minecraft
-    addThoughtFortnite(thoughtText: String!): ThoughtFortnite
-    addReactionFortnite(thoughtfortniteId: ID!, reactionBody: String!): ThoughtFortnite
-    addThoughtApex(thoughtText: String!): ThoughtApex
-    addReactionApex(thoughtapexId: ID!, reactionBody: String!): ThoughtApex
-    addThoughtPubg(thoughtText: String!): ThoughtPubg
-    addReactionPubg(thoughtpubgId: ID!, reactionBody: String!): ThoughtPubg
-    addThoughtMine(thoughtText: String!): ThoughtMine
-    addReactionMine(thoughtmineId: ID!, reactionBody: String!): ThoughtMine
     addGame(gameName: String!): Game
     addFollow(gameId: ID!): Game
     addGameThought(gameId: ID, thoughtText: String!): Thought

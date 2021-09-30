@@ -16,7 +16,7 @@ const Game = () => {
     const { id: gameUrl } = useParams();
 
     // const mockData = { gameName: 'Minecraft' }
-    console.log(gameUrl);
+    // console.log(gameUrl);
 
     const { loading, data } = useQuery(QUERY_GAME, {
         variables: { gameUrl }
