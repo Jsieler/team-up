@@ -328,6 +328,8 @@ query getGame($gameUrl: String!) {
     _id
     gameUrl
     gameName
+    description
+    image
     followerCount
     followers {
       _id
