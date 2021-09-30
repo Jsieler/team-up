@@ -17,6 +17,10 @@ import Auth from '../utils/auth';
 
 const Profile = (props) => {
 
+  const logIn = Auth.loggedIn();
+
+  console.log(logIn);
+
   const { username: userParam } = useParams();
 
   const [addFriend] = useMutation(ADD_FRIEND);
@@ -62,7 +66,7 @@ const Profile = (props) => {
         <h2 className="bg-dark text-secondary p-3 display-inline-block">
           Viewing {userParam ? `${user.username}'s` : 'your'} Page.
         </h2>
-       
+
 
         {userParam && (
           <button className="btn ml-auto" onClick={handleClick}>
@@ -73,21 +77,21 @@ const Profile = (props) => {
 
       <div className="flex-row justify-space-between mb-3">
         <div className="col-12 mb-3 col-lg-8 mb-5">
-        <h1>My Game Platforms</h1>
+          <h1>My Game Platforms</h1>
         </div>
-       
+
         <div className="col-12 mb-3 col-lg-8 mb-2">
-            <h2><img src={xboxImage} alt=""></img> Gamertag: {user.xbox}</h2>
-          </div>
+          <h2><img src={xboxImage} alt=""></img> Gamertag: {user.xbox}</h2>
+        </div>
 
-          <div className="col-12 mb-3 col-lg-8 mb-2">
-            <h2><img src={playstationImage} alt=""></img> Gamertag: {user.playstation}</h2>
-          </div>
+        <div className="col-12 mb-3 col-lg-8 mb-2">
+          <h2><img src={playstationImage} alt=""></img> Gamertag: {user.playstation}</h2>
+        </div>
 
-          <div className="col-12 mb-3 col-lg-8 mb-2">
-            <h2><img src={pcImage} alt=""></img> Gamertag: {user.pc}</h2>
-          </div>
-        
+        <div className="col-12 mb-3 col-lg-8 mb-2">
+          <h2><img src={pcImage} alt=""></img> Gamertag: {user.pc}</h2>
+        </div>
+
         <div className="col-12 mb-3 col-lg-8">
           <ThoughtList
             thoughts={user.thoughts}
