@@ -56,24 +56,6 @@ export const QUERY_USER = gql`
         createdAt
         reactionCount
       }
-      thoughtsfortnite {
-        _id
-        thoughtText
-        createdAt
-        reactionCount
-      }
-      thoughtsapex {
-        _id
-        thoughtText
-        createdAt
-        reactionCount
-      }
-      thoughtspubg {
-        _id
-        thoughtText
-        createdAt
-        reactionCount
-      }
     }
   }
 `;
