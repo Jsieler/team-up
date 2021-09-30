@@ -35,27 +35,10 @@ const typeDefs = gql`
     _id: ID
    gameName: String
    gameUrl: String
+   description: String
    followerCount: Int
    followers: [User]
    thoughts: [Thought]
-  }
-
-
-  type ThoughtMine {
-    _id: ID
-    thoughtText: String
-    createdAt: String
-    username: String
-    reactionCount: Int
-    reactions: [ReactionMine]
-  }
-
-  type ReactionMine {
-    _id: ID
-    reactionBody: String
-    createdAt: String
-    username: String
-
   }
 
   type Auth {
@@ -69,8 +52,6 @@ const typeDefs = gql`
     user(username: String!): User
     thoughts(username: String): [Thought]
     thought(_id: ID!): Thought
-    thoughtsmine(username: String): [ThoughtMine]
-    thoughtmine(_id: ID!): ThoughtMine
     games: [Game]
     game(gameUrl: String!): Game
   }

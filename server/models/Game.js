@@ -14,6 +14,12 @@ const gameSchema = new Schema(
             unique: true,
             trim: true
         },
+        description: {
+            type: String,
+            required: true,
+            unique: true,
+            trim: true
+        },
         followers: [
             {
                 type: Schema.Types.ObjectId,

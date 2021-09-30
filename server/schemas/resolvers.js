@@ -37,10 +37,6 @@ const resolvers = {
         .select('-__v -password')
         .populate('friends')
         .populate('thoughts')
-        .populate('thoughtsfortnite')
-        .populate('thoughtsapex')
-        .populate('thoughtspubg')
-        .populate('thoughtsmine')
         .populate('games');
     },
     thoughts: async (parent, { username }) => {

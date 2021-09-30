@@ -55,6 +55,7 @@ const Game = () => {
                 <div className="flex-row justify-space-between">
                     <div>
                         <p>{game.gameName}</p>
+                        <p>{game.description}</p>
                     </div>
                     <div>
                         <FollowersList
