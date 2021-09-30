@@ -53,9 +53,9 @@ const typeDefs = gql`
   type Game {
     _id: ID
    gameName: String
+   gameUrl: String
    followerCount: Int
    followers: [User]
-
    thoughts: [Thought]
   }
 
@@ -136,7 +136,7 @@ const typeDefs = gql`
     thoughtmine(_id: ID!): ThoughtMine
     minecraft: Minecraft
     games: [Game]
-    game(gameName: String!): Game
+    game(gameUrl: String!): Game
   }
 
   type Mutation {
@@ -158,6 +158,7 @@ const typeDefs = gql`
     addFollow(gameId: ID!): Game
     addGameThought(gameId: ID, thoughtText: String!): Thought
     deleteFollower(gameId: ID! followerId: ID!): Game
+    deleteGame(gameId: ID!): Game
   }
 `;
 

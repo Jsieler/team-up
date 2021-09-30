@@ -10,16 +10,24 @@ db.once('open', async () => {
 
     const games = [
         {
-            "gameName": "minecraft"
+            "gameUrl": "minecraft",
+            "gameName": "Minecraft"
         },
         {
-            "gameName": "fortnite"
+            "gameUrl": "fortnite",
+            "gameName": "Fortnite"
         },
         {
-            "gameName": "leage of legends"
+            "gameUrl": "leagueoflegends",
+            "gameName": "Leage of Legends"
         },
         {
-            "gameName": "apex"
+            "gameUrl": "apexlegends",
+            "gameName": "Apex"
+        },
+        {
+            "gameUrl": "pubg",
+            "gameName": "PUBG"
         }
     ]
 

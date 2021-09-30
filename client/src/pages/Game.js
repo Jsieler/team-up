@@ -13,13 +13,13 @@ import FollowGameButton from '../components/FolllowGameButton'
 const Game = () => {
 
     // ============== LOADS DATA ON GAME FROM DATABASE ================
-    const { id: gameName } = useParams();
+    const { id: gameUrl } = useParams();
 
     // const mockData = { gameName: 'Minecraft' }
-    // console.log({ id: gameName });
+    console.log(gameUrl);
 
     const { loading, data } = useQuery(QUERY_GAME, {
-        variables: { gameName }
+        variables: { gameUrl }
     });
 
     const game = data?.game || null;

@@ -91,8 +91,8 @@ const resolvers = {
         .populate('thoughts');
     },
     // get single game
-    game: async (parent, { gameName }) => {
-      return Game.findOne({ gameName })
+    game: async (parent, { gameUrl }) => {
+      return Game.findOne({ gameUrl })
         .select('-__v')
         .populate('followers')
         .populate('thoughts');
@@ -339,6 +339,16 @@ const resolvers = {
         return updatedGame;
 
       }
+    },
+    deleteGame: async (parent, { gameId }) => {
+
+      const updatedGame = await Game.deleteOne(
+        { _id: gameId },
+        { new: true }
+      );
+
+      return updatedGame;
+
     }
   }
 };

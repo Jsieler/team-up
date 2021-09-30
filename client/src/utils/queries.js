@@ -323,8 +323,9 @@ export const QUERY_THOUGHTMINE = gql`
 `;
 
 export const QUERY_GAME = gql`
-query getGame($gameName: String!) {
-  game(gameName: $gameName){
+query getGame($gameUrl: String!) {
+  game(gameUrl: $gameUrl){
+    gameUrl
     gameName
     followerCount
     followers {
