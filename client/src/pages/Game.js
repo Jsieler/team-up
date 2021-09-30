@@ -5,7 +5,7 @@ import { QUERY_GAME } from '../utils/queries';
 import Auth from '../utils/auth';
 import FollowersList from '../components/FollowersList';
 import ThoughtList from '../components/ThoughtList'
-import ThoughtForm from '../components/ThoughtForm'
+import GameThoughtForm from '../components/GameThoughtForm'
 import FollowGameButton from '../components/FolllowGameButton'
 
 // import ReactionList from '../components/ReactionList';
@@ -76,8 +76,9 @@ const Game = () => {
                     </div>
                     {loggedIn ? (
                         <div>
-                            <ThoughtForm
-
+                            <GameThoughtForm
+                                gameId={game._id}
+                                gameUrl={game.gameUrl}
                             />
                         </div>
                     ) : null}
