@@ -1266,7 +1266,6 @@ nav a:hover {
   display: none;
   font-family: 'Karla', sans-serif;
   background-color: var(--dark);
-  color: var(--yellow);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -1274,10 +1273,11 @@ nav a:hover {
 }
 
 .dropdown-content a {
+  font-size: 0px;
+  text-align: center;
   color: white;
-  font-size: 40px;
   font-weight: bolder;
-  text-align: left;
+
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -1327,7 +1327,7 @@ nav a:hover {
   line-height: 24px;
   padding: 0 25px;
   position: relative;
-  margin-left: 44%;
+  margin-left: 43%;
 }
 
 .special-button:after {
@@ -1358,9 +1358,10 @@ nav a:hover {
 }
 
 .minecraft:hover {
-  opacity: 0.5;
+  opacity: 1.0;
   color: white;
-  margin-left: 300px;
+  transform: scale(0.5);
+  /* transition-delay: 0.2s; */
 }
 
 .fortnite {
@@ -1371,9 +1372,9 @@ nav a:hover {
 }
 
 .fortnite:hover {
-  opacity: 0.6;
+  opacity: 1.0;
   color: white;
-  margin-left: 300px;
+  transform: scale(0.5);
 }
 
 .league {
@@ -1384,9 +1385,9 @@ nav a:hover {
 }
 
 .league:hover {
-  opacity: 0.6;
+  opacity: 1.0;
   color: white;
-  margin-left: 300px;
+  transform: scale(0.5);
 }
 
 .pubg {
@@ -1397,9 +1398,9 @@ nav a:hover {
 }
 
 .pubg:hover {
-  opacity: 0.6;
+  opacity: 1.0;
   color: white;
-  margin-left: 300px;
+  transform: scale(0.5);
 }
 
 .apex {
@@ -1410,7 +1411,9 @@ nav a:hover {
 }
 
 .apex:hover {
-  opacity: 0.6;
+  opacity: 1.0;
   color: white;
-  margin-left: 300px;
+  transform: scale(0.5);
 }
+}
+
