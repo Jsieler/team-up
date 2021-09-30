@@ -17,7 +17,10 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
+    "3d-react-carousal": "^4.0.2",
     "bootstrap": "^5.1.1",
-    "react-bootstrap": "^2.0.0-rc.0"
+    "react-awesome-slider": "^4.1.0",
+    "react-bootstrap": "^2.0.0-rc.0",
+    "react-responsive-carousel": "^3.2.21"
   }
 }
