@@ -2,15 +2,18 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_GAME } from '../utils/queries';
-// import Auth from '../utils/auth';
+import Auth from '../utils/auth';
 import FollowersList from '../components/FollowersList';
 import ThoughtList from '../components/ThoughtList'
+import ThoughtForm from '../components/ThoughtForm'
 import FollowGameButton from '../components/FolllowGameButton'
 
 // import ReactionList from '../components/ReactionList';
 // import ReactionForm from '../components/ReactionForm';
 
 const Game = () => {
+
+    const loggedIn = Auth.loggedIn();
 
     // ============== LOADS DATA ON GAME FROM DATABASE ================
     const { id: gameUrl } = useParams();
@@ -71,6 +74,13 @@ const Game = () => {
                             title={game.gameName}
                         />
                     </div>
+                    {loggedIn ? (
+                        <div>
+                            <ThoughtForm
+
+                            />
+                        </div>
+                    ) : null}
                     <div>
                         <FollowGameButton
                             gameId={game._id}
