@@ -36,22 +36,20 @@ const Game = () => {
 
     if (game === null) {
 
-        console.log("hello");
-
         return (
             <main>
                 <div className="flex-row justify-space-between">
                     <div>
-                        <p>No game found!</p>
+                        <p>This game was not found!</p>
                     </div>
                 </div>
             </main >
-        )
+
+        );
 
     } else {
 
         return (
-
             <main>
                 <div className="flex-row justify-space-between">
                     <div>
@@ -76,7 +74,6 @@ const Game = () => {
         );
 
     }
-
 
 };
 
