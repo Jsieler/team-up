@@ -19,10 +19,7 @@ const Header = () => {
         <img src={imageXbox} alt=""></img>
           <img src={imagePlaystation} alt=""></img>
           <img src={imagePC} alt=""></img>
-          <div className="parent">
-          <div className ="logo"><h1>Team UP</h1></div>
-          <div className ="boxtwo"></div>
-          <div className="boxone">
+          <h1>Team UP</h1>
           {Auth.loggedIn() ? (
             <>
               <Link to="/profile" className="btn">Me</Link>
@@ -35,8 +32,7 @@ const Header = () => {
               <Link to="/login" className="btn">Login</Link>
               <Link to="/signup" className="btn">Signup</Link>
             </>
-          )}</div>
-          </div>
+          )}
 
         </Link>
 

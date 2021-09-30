@@ -1,4 +1,4 @@
-/* :root {
+ :root {
   --primary: #656666;
   --secondary: #1bc2df;
   --tertiary: #b2c2c1;
@@ -13,7 +13,7 @@
   --spacing-three: 1rem;
   --spacing-four: calc(1rem * 1.5);
   --spacing-five: calc(1rem * 3);
-} */
+} 
 
 * {
   box-sizing: border-box;
@@ -31,7 +31,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
-  background-image: url("./images/backgroundpic.jpg");
+  background:white;
 }
 
 h1,
@@ -47,11 +47,13 @@ h6 {
 
 
 h1 {
-  font-size: 3.0rem;
+  font-size: 4rem;
   font-family: 'Games', sans-serif ;
   color: black;
   text-shadow: black;
 padding-top: 13px;
+padding-left: 27rem;
+
 }
 
 h2 {
@@ -84,41 +86,6 @@ a {
   text-decoration: none;
 }
 
-.boxone {
-  background-image: url(./components/Header/images/header.jpg);
-  width: 938px;
-  height: 56px;
-  background-repeat: no-repeat;
-  border: 5px;
-  border-radius: 4px;
-  margin-left: 12rem;
-  color: yellow;
-}
-
-.boxtwo {
-  background-image: url(./components/Header/images/header.jpg);
-  width: 740px;
-  height: 34px;
-  background-repeat: no-repeat;
-  border: 5px;
-  border-radius: 4px;
-  margin-left: 18rem;
-}
-
-.logo {
-  background-image: url(./components/Header/images/logo.png);
-  width: 182px;
-    height: 194px;
-    position: absolute;
-    top: -30px;
-    left: -1px;
- text-align: center;
- margin-left: 36rem;
-}
-
-.parent {
-  position: relative;
-}
 a:visited {
   color: inherit;
 }
@@ -184,10 +151,9 @@ nav a:hover {
   height: 70vh;
   border-radius: 2px;
   border-style: solid;
-  border: 30px solid #282828;
+  border: 10px solid yellow;
   margin-left: 12rem;
 
-  
 }
 
 /* CARDS */
@@ -195,12 +161,16 @@ nav a:hover {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
-  /* background-color: var(--light);
-  color: var(--dark); */
+  background-color: var(--light);
+  color: var(--dark); 
+}
+.head {
+  background-color: yellow;
+  
 }
 
 .card-header {
-  /* color: var(--secondary); */
+  color: var(--secondary); 
   margin: 0;
   background-color: var(--dark);
   padding: 0.625rem;
@@ -286,17 +256,19 @@ nav a:hover {
   -webkit-transform: scale(1);
   transform: scale(1);
 }
+.foot {
+  background-color: yellow;
+}
 
 /* LAYOUT */
-/* .container {
+.container {
   width: 85%;
   max-width: 1200px;
-
 }
 
 .container-fluid {
   width: 92%;
-} */
+} 
 
 /* DISPLAY */
 .display-none {
@@ -1355,12 +1327,11 @@ nav a:hover {
 }
 
 .special-button {
-  align-items: center;
-  background-color: #f5ed00;
-  border: 2px solid #111;
+ background-color:black;
+  border: 0px solid #111;
   border-radius: 8px;
-  box-sizing: border-box;
-  color: #111;
+  
+  color: yellow;
   font-family: 'Karla', sans-serif;
   font-size: 20px;
   height: 50px;
