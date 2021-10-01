@@ -17,7 +17,7 @@ import Auth from '../utils/auth';
 
 
 
-const Profile = (props) => {
+const Profile = () => {
 
   // VARIABLES FOR MODAL
   const [show, setShow] = useState(false);
@@ -29,9 +29,7 @@ const Profile = (props) => {
   const [play] = useSound('/sounds/friend.wav');
 
   // LOGIC FOR CHECKING IF USER IS LOGGED IN
-  const logIn = Auth.loggedIn();
-
-  console.log(logIn);
+  // const logIn = Auth.loggedIn();
 
   // RETRIEVING USER ID FROM URL
   const { username: userParam } = useParams();
@@ -45,9 +43,6 @@ const Profile = (props) => {
   });
 
   const user = data?.me || data?.user || {};
-
-  console.log(user);
-  console.log(data);
 
   // redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
