@@ -65,7 +65,7 @@ const typeDefs = gql`
     addFriend(friendId: ID!): User
     addGame(gameName: String!): Game
     addFollow(gameId: ID!): Game
-    addGameThought(gameId: ID, thoughtText: String!): Thought
+    addGameThought(gameId: ID!, thoughtText: String!): Thought
     deleteFollower(gameId: ID! followerId: ID!): Game
     deleteGame(gameId: ID!): Game
     deleteGames: [Game]

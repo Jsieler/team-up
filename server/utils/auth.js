@@ -28,6 +28,7 @@ module.exports = {
 
     try {
       // decode and attach user data to request object
+      // @ts-ignore
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
       req.user = data;
     } catch {

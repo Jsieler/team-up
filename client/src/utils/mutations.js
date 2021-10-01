@@ -116,6 +116,11 @@ mutation addGameThought($gameId: ID!, $thoughtText: String!) {
     _id
     thoughtText
     username
+    createdAt
+    reactionCount
+    reactions{
+      _id
+    }
   }
 }
 `;

@@ -6,28 +6,25 @@ import imagePC from './images/pc.png'
 import Auth from '../../utils/auth';
 
 const Header = () => {
+
+
   const logout = event => {
     event.preventDefault();
     Auth.logout();
   };
   return (
 
+    <header className="head">
+      <div className="container">
 
-    <header className="bg-secondary mb-4 py-2 flex-row align-center yellow">
-      <div className="container flex-row justify-space-between-lg justify-center align-center vex">
-        <Link to="/" className="move-left">
-
-          <h1 class= "team">Team-UP</h1>
-          <>
-        <div className = "icon">
+        <Link to="/">
           <img src={imageXbox} alt=""></img>
           <img src={imagePlaystation} alt=""></img>
           <img src={imagePC} alt=""></img>
-        </div>
-        </>
+          <h1>Team UP</h1>
         </Link>
 
-        <nav className="text-center">
+        <nav>
           {Auth.loggedIn() ? (
             <>
               <Link to="/profile" className="btn">Me</Link>

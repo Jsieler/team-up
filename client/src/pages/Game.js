@@ -27,7 +27,7 @@ const Game = () => {
 
     const game = data?.game || null;
 
-    console.log(game);
+    // console.log(game);
 
     // const game = data;
     // console.log(game);
@@ -81,7 +81,6 @@ const Game = () => {
                             <GameThoughtForm
                                 gameId={game._id}
                                 gameUrl={game.gameUrl}
-                                gameData={game}
                             />
                         </div>
                     ) : null}

@@ -58,6 +58,7 @@ const resolvers = {
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
+      // @ts-ignore
       const token = signToken(user);
 
       return { token, user };
@@ -166,6 +167,8 @@ const resolvers = {
           { $push: { thoughts: gameThought._id } },
           { new: true }
         ).populate('thoughts');
+
+        // console.log(gameThought);
 
         return gameThought;
 
