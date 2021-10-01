@@ -32,9 +32,30 @@ body {
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
-  background-color: #f3fffee1;
+  background-color: black;
 }
 
+.imgone,
+.imgtwo,
+.imgthree,
+.imgfour,
+.imgfive,
+.imgsix {
+  width: 65vw;
+  height: 75vh;
+  border-radius: 2px;
+  border-radius: 10px;
+  margin-left: 5.2rem;
+margin-top: 2rem;
+
+}
+
+.carosel-item h3 {
+  color: yellow;
+}
+.icon {
+  margin-left: 4.2rem;
+}
 h1,
 h2,
 h3,
@@ -45,10 +66,26 @@ h6 {
   font-weight: 700;
   margin: 5px 0;
   line-height: 1.25;
+  color: whitesmoke;
+}
+.team {
+  color: black;
 }
 
+.btn {
+  color: whitesmoke;
+}
+p {
+  color: whitesmoke;
+}
+footer {
+  color:whitesmoke;
+  padding-top:1rem;
+}
 h1 {
   font-size: 2.25rem;
+  margin-left: 3.2rem;
+  font-size: 3rem;
 }
 
 h2 {
@@ -116,7 +153,7 @@ nav a:hover {
   margin: 5px 0;
   border-radius: var(--border-radius);
   border: none;
-  color: var(--dark);
+  color: whitesmoke;
   outline: none;
   /* background-color: var(--secondary); */
   transition: all 0.5s;
@@ -124,8 +161,8 @@ nav a:hover {
 
 .btn:hover,
 .pill:hover {
-  color: var(--secondary);
-  background-color: var(--dark);
+  color:white;
+  background-color: rgb(16, 172, 172);
 }
 
 .btn:hover a,
@@ -1319,7 +1356,7 @@ nav a:hover {
   padding: 0 25px;
   position: relative;
   /* background-color: hotpink; */
-  margin-left: 26.7vw;
+  margin-left: 470px;
 }
 
 .special-button:after {

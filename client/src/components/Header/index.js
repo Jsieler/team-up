@@ -17,12 +17,14 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center vex">
         <Link to="/" className="move-left">
 
-          <h1>Team-UP</h1>
-
+          <h1 class= "team">Team-UP</h1>
+          <>
+        <div className = "icon">
           <img src={imageXbox} alt=""></img>
           <img src={imagePlaystation} alt=""></img>
           <img src={imagePC} alt=""></img>
-
+        </div>
+        </>
         </Link>
 
         <nav className="text-center">
