@@ -9,14 +9,14 @@ const GamePop = () => {
       
         <Carousel fade>
         <Carousel.Item>
-          <img
+          <img class="imgone"
             className="imgone"
             src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F614a0598f1c112cfc3f46262%2FCall-Of-Duty--Vanguard-open-beta-characters%2F960x0.jpg%3Ffit%3Dscale"
             alt="First slide"
           />
           <Carousel.Caption>
             <h3>Call of Duty</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -28,7 +28,7 @@ const GamePop = () => {
       
           <Carousel.Caption>
             <h3>Fornite</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -40,7 +40,7 @@ const GamePop = () => {
       
           <Carousel.Caption>
             <h3>Apex Legends</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+           
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -52,7 +52,7 @@ const GamePop = () => {
       
           <Carousel.Caption>
             <h3>Minecraft</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -64,7 +64,7 @@ const GamePop = () => {
       
           <Carousel.Caption>
             <h3>PUBG:Battleground</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -76,7 +76,7 @@ const GamePop = () => {
       
           <Carousel.Caption>
             <h3>League of Legends</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
