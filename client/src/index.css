@@ -1479,3 +1479,11 @@ nav a:hover {
   text-align: center;
   margin-top: 2vh;
 }
+
+.followButton{
+  color: #111;
+}
+
+.submitButton{
+  color: #111;
+}

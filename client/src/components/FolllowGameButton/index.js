@@ -34,7 +34,7 @@ const FollowGameButton = ({ gameId }) => {
     return (
         <div>
 
-            <button className="btn ml-auto" onClick={handleClick}>
+            <button className="btn ml-auto followButton" onClick={handleClick}>
                 FOLLOW
             </button>
 
