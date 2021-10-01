@@ -6,20 +6,24 @@ import imagePC from './images/pc.png'
 import Auth from '../../utils/auth';
 
 const Header = () => {
+
+
   const logout = event => {
     event.preventDefault();
     Auth.logout();
   };
   return (
-
-
     <header className="head">
       <div className="container">
-        <Link to="/" className="">
-        <img src={imageXbox} alt=""></img>
+
+        <Link to="/">
+          <img src={imageXbox} alt=""></img>
           <img src={imagePlaystation} alt=""></img>
           <img src={imagePC} alt=""></img>
           <h1>Team UP</h1>
+        </Link>
+
+        <nav>
           {Auth.loggedIn() ? (
             <>
               <Link to="/profile" className="btn">Me</Link>
@@ -33,9 +37,7 @@ const Header = () => {
               <Link to="/signup" className="btn">Signup</Link>
             </>
           )}
-
-        </Link>
-
+        </nav>
       </div>
     </header>
   );
