@@ -1,10 +1,10 @@
- :root {
+:root {
   --primary: #656666;
   --secondary: #1bc2df;
   --tertiary: #b2c2c1;
   --quatrinary: #cadbda;
   --light: #e1f5f4;
-  
+  --dark: #090a0a;
   --yellow: #f5ed00;
   --error: rgb(228, 46, 1);
   --border-radius: 0.3rem;
@@ -13,7 +13,7 @@
   --spacing-three: 1rem;
   --spacing-four: calc(1rem * 1.5);
   --spacing-five: calc(1rem * 3);
-} 
+}
 
 * {
   box-sizing: border-box;
@@ -31,7 +31,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
   font-size: 20px;
-  background:white;
+  color: var(--dark);
+  background-color: #f3fffee1;
 }
 
 h1,
@@ -40,20 +41,14 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: "Karla", sans-serif;
   font-weight: 700;
   margin: 5px 0;
   line-height: 1.25;
 }
 
-
 h1 {
-  font-size: 4rem;
-  font-family: 'Games', sans-serif ;
-  color: black;
-  text-shadow: black;
-padding-top: 13px;
-padding-left: 27rem;
-
+  font-size: 2.25rem;
 }
 
 h2 {
@@ -115,45 +110,31 @@ nav a:hover {
 
 .btn,
 .pill {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   text-decoration: none;
   padding: 0.5rem 1.2rem;
-  margin-top: 5px 0;
+  margin: 5px 0;
+  border-radius: var(--border-radius);
   border: none;
-  color: yellow;
+  color: var(--dark);
   outline: none;
+  /* background-color: var(--secondary); */
   transition: all 0.5s;
 }
 
-
 .btn:hover,
 .pill:hover {
-  color: whitesmoke;
-  
+  color: var(--secondary);
+  background-color: var(--dark);
 }
 
 .btn:hover a,
 .pill:hover a {
-  color: whitesmoke;
+  color: var(--secondary);
 }
 
 .btn-inline {
   display: inline;
-}
-
-.imgone,
-.imgtwo,
-.imgthree,
-.imgfour,
-.imgfive,
-.imgsix {
-  width: 61.5vw;
-  height: 70vh;
-  border-radius: 2px;
-  border-style: solid;
-  border: 10px solid yellow;
-  margin-left: 12rem;
-
 }
 
 /* CARDS */
@@ -162,15 +143,11 @@ nav a:hover {
   border: 3px solid var(--dark);
   border-radius: var(--border-radius);
   background-color: var(--light);
-  color: var(--dark); 
-}
-.head {
-  background-color: yellow;
-  
+  color: var(--dark);
 }
 
 .card-header {
-  color: var(--secondary); 
+  color: var(--secondary);
   margin: 0;
   background-color: var(--dark);
   padding: 0.625rem;
@@ -256,19 +233,18 @@ nav a:hover {
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-.foot {
-  background-color: yellow;
-}
 
 /* LAYOUT */
 .container {
   width: 85%;
   max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .container-fluid {
   width: 92%;
-} 
+}
 
 /* DISPLAY */
 .display-none {
@@ -1327,11 +1303,13 @@ nav a:hover {
 }
 
 .special-button {
- background-color:black;
-  border: 0px solid #111;
+  align-items: center;
+  background-color: #f5ed00;
+  border: 2px solid #111;
   border-radius: 8px;
-  
-  color: yellow;
+  box-sizing: border-box;
+  color: #111;
+  display: flex;
   font-family: 'Karla', sans-serif;
   font-size: 20px;
   height: 50px;
