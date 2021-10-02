@@ -38,7 +38,27 @@ db.once('open', async () => {
             "gameName": "PUBG",
             "description": "PlауеrUnknоwn’ѕ Battlegrounds, bеttеr knоwn аѕ PUBG, іѕ a multірlауеr battle rоуаlе gаmе іn whісh players drop оntо аn іѕlаnd and fіght tо bе thе last оnе lеft standing.",
             "image": "pubg.jpeg"
+        },
+        {
+            "gameUrl": "cod",
+            "gameName": "COD",
+            "description": "Call of Duty is a first-person shooter video game",
+            "image": "cod.jpeg"
+        },
+        {
+            "gameUrl": "nba",
+            "gameName": "NBA2K",
+            "description": "NBA2k is a series of basketball video games developed and released annually since 1999",
+            "image": "nba.jpeg"
+        },
+        {
+            "gameUrl": "halo",
+            "gameName": "Halo",
+            "description": "Halo is a first-person shooter game,",
+            "image": "halo.jpeg"
         }
+
+        
     ]
 
     await Game.collection.insertMany(games);
