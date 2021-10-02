@@ -97,29 +97,20 @@ const Profile = () => {
       </div>
 
       <div className="flex-row justify-space-between mb-3">
-        <div className="col-12 mb-3 col-lg-8 mb-5">
-          <h1>My Game Platforms</h1>
+
+      <div className="col-12 col-lg-1 mb-3">
+          <h2><img className="xbox" src={xboxImage} alt=""></img> {user.xbox}</h2>
+          <h2><img className="playstation" src={playstationImage} alt=""></img> {user.playstation}</h2>
+          <h2><img className="xbox" src={pcImage} alt=""></img> {user.pc}</h2>
         </div>
 
-        <div className="col-12 mb-3 col-lg-8 mb-2">
-          <h2><img className="xbox" src={xboxImage} alt=""></img>: {user.xbox}</h2>
-        </div>
-
-        <div className="col-12 mb-3 col-lg-8 mb-2">
-          <h2><img className="playstation" src={playstationImage} alt=""></img>: {user.playstation}</h2>
-        </div>
-
-        <div className="col-12 mb-3 col-lg-8 mb-2">
-          <h2><img className="pc" src={pcImage} alt=""></img>: {user.pc}</h2>
-        </div>
-
-        <div className="col-12 mb-3 col-lg-8">
+        <div className="col-12 mb-3 col-lg-6 pl-5">
           <ThoughtList
             thoughts={user.thoughts}
             title={`${user.username}'s Posts`}
           />
         </div>
-
+      
         <div className="col-12 col-lg-3 mb-3">
           <FriendList
             username={user.username}
@@ -130,6 +121,8 @@ const Profile = () => {
             pc={user.pc}
           />
         </div>
+
+       
 
         <Modal className="friend-modal" show={show} onHide={handleClose}>
           <img src="/images/smiley.png" className="smiley-face" alt="friend-added" />
