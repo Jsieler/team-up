@@ -112,7 +112,8 @@ h6 {
 
 p {
   font-size: 1.1rem;
-  margin-top: 0;
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
 a {
@@ -1509,6 +1510,37 @@ nav a:hover {
   transform: scale(0.5);
 }
 
+.nba {
+  background: url("../src/images/nba.jpg");
+  background-position: left;
+  background-repeat: no-repeat;
+  height: 130px;
+  width: 900px;
+ 
+  
+}
+
+.nba:hover {
+  opacity: 1.0;
+  color: white;
+  transform: scale(0.5);
+}
+
+
+.halo {
+  background: url("../src/images/halo.jpg");
+  background-position: left;
+  background-repeat: no-repeat;
+  height: 130px;
+  width: 100%;
+}
+
+.halo:hover {
+  opacity: 1.0;
+  color: white;
+  transform: scale(0.5);
+}
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -1582,7 +1614,11 @@ img.pc {
 img.teamup {
   height: 100%;
   width: 100%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
+
+
 
 img.xboxIcon {
   height: 30px;
@@ -1635,4 +1671,5 @@ img.pcIcon {
 .gamepage-images {
   vertical-align: middle;
   width: 100%;
+  border-radius: 10px;
 }
