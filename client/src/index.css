@@ -1371,6 +1371,37 @@ nav a:hover {
   }
 }
 
+@media (max-width: 1400px) {
+ 
+  .dropdown-content a {
+    transition: 0.5s;
+    background-color: var(--yellow);
+    background-size: contain;
+    width: 100%;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: var(--dark);
+  }
+  
+  .move-left {
+    margin-left: 28vw;
+  }
+  
+  .sono {
+    margin-top: 10px;
+  }
+  
+  .yellow {
+    background:
+      linear-gradient(90deg, #f5ed00 70%, #e6de00 70%), #fff700;
+  }
+}
+
 @media (min-width: 768px) {
   .dropdown {
     width: 0px;
@@ -1582,6 +1613,7 @@ img.pcIcon {
   line-height: 24px;
   padding: 0 25px;
   position: relative;
+  margin-bottom: 10px;
 }
 
 .special-button:after {
