@@ -1505,3 +1505,35 @@ nav a:hover {
 .submitButton{
   color: #111;
 }
+
+img.xbox {
+  height: 200px;
+}
+
+img.playstation {
+  height: 200px;
+}
+
+img.pc {
+  height: 200px;
+}
+
+img.teamup {
+  height: 275px;
+  width: 100%;
+}
+
+img.xboxIcon {
+  height: 30px;
+  padding-right: 10px;
+}
+
+img.playstationIcon {
+  height: 38px;
+  padding-right: 10px;
+}
+
+img.pcIcon {
+  height: 38px;
+  padding-right: 10px;
+}

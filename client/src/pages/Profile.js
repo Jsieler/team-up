@@ -6,9 +6,9 @@ import useSound from 'use-sound';
 import ThoughtForm from '../components/ThoughtForm';
 import ThoughtList from '../components/ThoughtList';
 import FriendList from '../components/FriendList';
-import xboxImage from '../images/xbox.png'
-import playstationImage from '../images/playstation.png'
-import pcImage from '../images/pc.png'
+import xboxImage from '../images/xbox.jpeg'
+import playstationImage from '../images/playstation.jpeg'
+import pcImage from '../images/pc.jpeg'
 
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_USER, QUERY_ME } from '../utils/queries';
@@ -102,15 +102,15 @@ const Profile = () => {
         </div>
 
         <div className="col-12 mb-3 col-lg-8 mb-2">
-          <h2><img src={xboxImage} alt=""></img> Gamertag: {user.xbox}</h2>
+          <h2><img className="xbox" src={xboxImage} alt=""></img>: {user.xbox}</h2>
         </div>
 
         <div className="col-12 mb-3 col-lg-8 mb-2">
-          <h2><img src={playstationImage} alt=""></img> Gamertag: {user.playstation}</h2>
+          <h2><img className="playstation" src={playstationImage} alt=""></img>: {user.playstation}</h2>
         </div>
 
         <div className="col-12 mb-3 col-lg-8 mb-2">
-          <h2><img src={pcImage} alt=""></img> Gamertag: {user.pc}</h2>
+          <h2><img className="pc" src={pcImage} alt=""></img>: {user.pc}</h2>
         </div>
 
         <div className="col-12 mb-3 col-lg-8">
