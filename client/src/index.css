@@ -1598,7 +1598,3 @@ img.pcIcon {
   z-index: -1;
 }
 
-img, svg {
-  vertical-align: middle;
-  width: 100%;
-}
