@@ -12,7 +12,7 @@ const GamePop = () => {
           <img class="imgone"
             className="imgone"
             src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F614a0598f1c112cfc3f46262%2FCall-Of-Duty--Vanguard-open-beta-characters%2F960x0.jpg%3Ffit%3Dscale"
-            alt="First slide"
+            alt="people in warzone"
           />
           <Carousel.Caption>
             <h3>Call of Duty</h3>
@@ -23,7 +23,7 @@ const GamePop = () => {
           <img
             className="imgtwo"
             src="https://discuss.criticecho.com/uploads/default/original/1X/3dbd31cc096b41ea7c3ead3085ca1f9a87a75f43.jpeg"
-            alt="Second slide"
+            alt="People standing in colorful background"
           />
       
           <Carousel.Caption>
@@ -35,7 +35,7 @@ const GamePop = () => {
           <img
             className="imgthree"
             src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2019/02/989550.jpg"
-            alt="Third slide"
+            alt="three people standing"
           />
       
           <Carousel.Caption>
@@ -47,7 +47,7 @@ const GamePop = () => {
           <img
             className="imgfour"
             src="https://www.wallpapertip.com/wmimgs/2-27681_minecraft-wallpaper-4k-pc.jpg"
-            alt="Third slide"
+            alt="people and a pig standing on mountain"
           />
       
           <Carousel.Caption>
@@ -59,7 +59,7 @@ const GamePop = () => {
           <img
             className="imgfive"
             src="https://wallpapercave.com/wp/wp7550153.jpg"
-            alt="Third slide"
+            alt="Man standing in battle"
           />
       
           <Carousel.Caption>
@@ -71,11 +71,31 @@ const GamePop = () => {
           <img
             className="imgsix"
             src="https://www.ultraverso.com.br/wp-content/uploads/2019/12/league-of-legends.jpg"
-            alt="Third slide"
+            alt="creatures standing in field"
           />
       
           <Carousel.Caption>
             <h3>League of Legends</h3>
+            
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="imgseven"
+            src="https://wallpaperaccess.com/full/1440419.jpg"
+            alt="Men playing Basketball"
+          />
+          <Carousel.Caption>
+            <h3>NBA 2k</h3>
+            
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img className="imgeight"
+            src="https://wallpapercave.com/wp/FEAF03h.jpg"
+            alt="robot standing in landscape"
+          />
+          <Carousel.Caption>
+            <h3>Halo</h3>
             
           </Carousel.Caption>
         </Carousel.Item>

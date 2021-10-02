@@ -12,6 +12,9 @@ const GameList = () => {
                 <a className="league" href="/game/leagueoflegends" alt="league of legends">league</a>
                 <a className="pubg" href="/game/pubg" alt="player unknown battlegrounds">pubg</a>
                 <a className="apex" href="/game/apexlegends" alt="apex legends">apex legends</a>
+                <a className="cod" href="/game/cod" alt="cod">cod</a>
+                <a className="nba" href="/game/nba" alt="nba2k">nba2k</a>
+                <a className="halo" href="/game/halo" alt="halo">halo</a>
             </div>
         </div>
     );
