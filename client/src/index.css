@@ -76,7 +76,7 @@ h6 {
   color: whitesmoke;
 }
 p {
-  color: whitesmoke;
+  color:#1bc2df
 }
 footer {
   color:whitesmoke;
@@ -90,6 +90,7 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  color: #1bc2df;
 }
 
 h3 {
@@ -153,10 +154,12 @@ nav a:hover {
   margin: 5px 0;
   border-radius: var(--border-radius);
   border: none;
-  color: whitesmoke;
+  color: black;
   outline: none;
-  /* background-color: var(--secondary); */
+  background-color: yellow;
   transition: all 0.5s;
+  margin-right: 10px;
+
 }
 
 .btn:hover,
