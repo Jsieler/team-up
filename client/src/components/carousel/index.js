@@ -95,7 +95,7 @@ const GamePop = () => {
             alt="robot standing in landscape"
           />
           <Carousel.Caption>
-            <h3>Halo</h3>
+            <h3>HALO</h3>
             
           </Carousel.Caption>
         </Carousel.Item>
