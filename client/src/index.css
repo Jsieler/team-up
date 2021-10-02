@@ -697,6 +697,7 @@ nav a:hover {
 
 .pl-5 {
   padding-left: var(--spacing-five);
+  margin-left: 60px;
 }
 
 .pl-auto {
@@ -1342,7 +1343,7 @@ nav a:hover {
 
 /* CSS */
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
  
   .dropdown-content a {
     transition: 0.5s;
@@ -1370,6 +1371,9 @@ nav a:hover {
   .yellow {
     background:
       linear-gradient(90deg, #f5ed00 70%, #e6de00 70%), #fff700;
+  }
+  .pl-5 {
+    margin-left: -20px;
   }
 }
 
@@ -1408,6 +1412,8 @@ nav a:hover {
   .dropdown {
     width: 0px;
   }
+
+  
   
   .special-button {
     align-items: center;
