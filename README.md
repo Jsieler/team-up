@@ -7,6 +7,7 @@
 * `MERN (MongoDB, Express.js, React, and Node.js)`
 * `GraphQl`
 * `JSON Web Token`
+* `Bcryptjs`
 
 
 ## This was a group collaborative project
