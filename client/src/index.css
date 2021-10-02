@@ -41,11 +41,10 @@ body {
 .imgfour,
 .imgfive,
 .imgsix {
-  width: 65vw;
-  height: 75vh;
+  width: 100%;
+  height: 100%;
   border-radius: 2px;
   border-radius: 10px;
-  margin-left: 5.2rem;
 margin-top: 2rem;
 
 }
@@ -1120,6 +1119,7 @@ nav a:hover {
   nav {
     width: auto;
     justify-content: flex-end;
+    margin-bottom: 50px;
   }
 
   .page-title {
@@ -1210,6 +1210,7 @@ nav a:hover {
   .align-center-lg {
     align-items: center;
   }
+  
 }
 
 /* col-xl */
@@ -1314,10 +1315,11 @@ nav a:hover {
   display: block;
   transition: 0.5s;
   background-color: var(--yellow);
-  /* transition: 3s; */
 }
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 .dropdown:hover .dropbtn {
   background-color: var(--dark);
@@ -1338,47 +1340,73 @@ nav a:hover {
 
 /* CSS */
 
-.dropdown {
-  width: 0px;
-}
-
-.special-button {
-  align-items: center;
-  background-color: #f5ed00;
-  border: 2px solid #111;
-  border-radius: 8px;
-  box-sizing: border-box;
-  color: #111;
-  display: flex;
-  font-family: 'Karla', sans-serif;
-  font-size: 20px;
-  height: 50px;
-  width: 200px;
-  justify-content: center;
-  line-height: 24px;
-  padding: 0 25px;
-  position: relative;
-  /* background-color: hotpink; */
-  margin-left: 470px;
-}
-
-.special-button:after {
-  background-color: #111;
-  border-radius: 8px;
-  content: "";
-  display: block;
-  height: 49px;
-  width: 100%;
-  position: absolute;
-  top: -2px;
-  transform: translate(8px, 8px);
-  transition: transform .2s ease-out;
-  z-index: -1;
+@media (max-width: 700px) {
+ 
+  .dropdown-content a {
+    transition: 0.5s;
+    background-color: var(--yellow);
+    background-size: contain;
+    height: 50px;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn {
+    background-color: var(--dark);
+  }
+  
+  .move-left {
+    margin-left: 28vw;
+  }
+  
+  .sono {
+    margin-top: 10px;
+  }
+  
+  .yellow {
+    background:
+      linear-gradient(90deg, #f5ed00 70%, #e6de00 70%), #fff700;
+  }
 }
 
 @media (min-width: 768px) {
+  .dropdown {
+    width: 0px;
+  }
+  
   .special-button {
-    padding: 0 40px;
+    align-items: center;
+    background-color: #f5ed00;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+    display: flex;
+    font-family: 'Karla', sans-serif;
+    font-size: 20px;
+    height: 50px;
+    width: 200px;
+    justify-content: center;
+    line-height: 24px;
+    padding: 0 25px;
+    position: relative;
+    margin-left: 470px;
+  }
+  
+  .special-button:after {
+    background-color: #111;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 49px;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform .2s ease-out;
+    z-index: -1;
   }
 }
 
@@ -1519,7 +1547,7 @@ img.pc {
 }
 
 img.teamup {
-  height: 275px;
+  height: 100%;
   width: 100%;
 }
 
@@ -1536,5 +1564,37 @@ img.playstationIcon {
 img.pcIcon {
   height: 38px;
   padding-right: 10px;
+}
+
+.special-button {
+  align-items: center;
+  background-color: #f5ed00;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  display: flex;
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+  height: 50px;
+  width: 200px;
+  justify-content: center;
+  line-height: 24px;
+  padding: 0 25px;
+  position: relative;
+}
+
+.special-button:after {
+  background-color: #111;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 49px;
+  width: 100%;
+  position: absolute;
+  top: -2px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
 }
 
