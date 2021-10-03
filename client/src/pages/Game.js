@@ -57,7 +57,7 @@ const Game = () => {
             <main>
                 <div className="flex-row justify-space-between">
                     <div>
-                        <p>{game.gameName}</p>
+                        <h1>{game.gameName}</h1>
                         <img className="gamepage-images" src={`/images/${game.image}`} alt={game.image}></img>
                         <p>{game.description}</p>
                     </div>
