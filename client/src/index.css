@@ -1312,9 +1312,8 @@ nav a:hover {
 .dropdown-content {
   display: none;
   font-family: 'Karla', sans-serif;
-  background-color: var(--yellow);
+  background: linear-gradient(90deg, #f5ed00 70%, #e6de00 70%), #fff700;
   min-width: 61.5vw;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
