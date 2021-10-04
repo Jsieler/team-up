@@ -1408,9 +1408,6 @@ nav a:hover {
     margin-top: 10px;
   }
 
-  .yellow {
-    background: linear-gradient(90deg, #f5ed00 70%, #e6de00 70%), #fff700;
-  }
 }
 
 @media (min-width: 768px) {
@@ -1532,7 +1529,6 @@ nav a:hover {
   transform: scale(0.5);
 }
 
-
 .carousel-caption h3 {
   color: #e6de00;
   background-color: #000000d0;
@@ -1569,6 +1565,71 @@ nav a:hover {
   opacity: 1;
   color: white;
   transform: scale(0.5);
+}
+
+.vertical-menu {
+  display: none;
+  visibility: none;
+}
+
+@media only screen and (max-width: 1401) {
+  body {
+    background-color: blue;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .dropdown-content {
+    display: none;
+    visibility: none;
+  }
+  .special-button {
+    display: none;
+    visibility: none;
+  }
+  .vertical-menu {
+    display: block;
+    visibility: visible;
+    color: white;
+    text-align: center;
+  }
+  .vertical-menu a {
+    color: white;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+  .vertical-menu a:hover {
+    background-color: #ccc;
+  }
+  .vertical-menu a.active {
+    background-color: var(--purple);
+    color: red;
+  }
+  .Mphone {
+    background: url("../src/images/Minecraft.png");
+  }
+  .Fphone {
+    background: url("../src/images/Fortnite.png");
+  }
+  .Lphone {
+    background: url("./images/League.png");
+  }
+  .Pphone {
+    background: url("./images/pubg.png");
+  }
+  .Aphone {
+    background: url("./images/apex.png");
+  }
+  .Nphone {
+    background: url("./images/nba.jpg");
+  }
+  .Hphone {
+    background: url("./images/haloslider2.png");
+  }
+  .Cphone {
+    background-color: var(--gray-1);
+  }
 }
 
 /* The Modal (background) */

@@ -16,6 +16,16 @@ const GameList = () => {
                 <a className="halo" href="/game/halo" alt="halo">halo</a>
                 <a className="cod" href="/game/cod" alt="cod">cod</a>
             </div>
+            <div className="vertical-menu">
+                <a className="Mphone" href="/game/minecraft">Minecraft</a>
+                <a className="Fphone" href="/game/fortnite">Fortnite</a>
+                <a className="Lphone" href="/game/leagueoflegends">League</a>
+                <a className="Pphone" href="/game/pubg">Pubg</a>
+                <a className="Aphone" href="/game/apexlegends">Apex Legends</a>
+                <a className="Nphone" href="/game/nba">Nba2k</a>
+                <a className="Hphone" href="/game/halo">Halo</a>
+                <a className="Cphone" href="/game/cod">Cod</a>
+            </div>
         </div>
     );
 };
