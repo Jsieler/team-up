@@ -19,7 +19,6 @@
 * [Contributors](#contributors)
 * [Version History](#version-history)
 * [Contributing](#contributing)
-* [Questions](#questions)
 
 ## Installation 
 * No installation necessary just click the <a href="https://protected-depths-21600.herokuapp.com/">Team-Up</a> link to use!
@@ -49,11 +48,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## Contributing
 Please refer to the [Contributor Covenenant](https://www.contributor-covenant.org/) for guidelines on contributing on this project.
-
-## Questions
-For any inquiries or questions, please contact Anthony Pena via:
-* GitHub: [anthonypena97](https://github.com/anthonypena97)
-* Email: <anthony.e.p3na@gmail.com>
 
 ![9FFA50D9-EAE5-4316-89E6-6E7E24B03842](https://user-images.githubusercontent.com/80868375/135702913-a4f26a1a-4ab1-45a8-8eb6-939a6333e320.jpeg)
 ![080E3D87-F6B6-49C5-A810-F04A8B134AC5_1_105_c](https://user-images.githubusercontent.com/80868375/135702915-6c519162-6cbf-45ef-b0b5-ef7fecfeea7d.jpeg)
