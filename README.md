@@ -17,7 +17,7 @@
 * [Installation](#installation)
 * [License](#license)
 * [Contributors](#contributors)
-* [Version History](#version history)
+* [Version History](#version-history)
 * [Contributing](#contributing)
 * [Questions](#questions)
 
@@ -45,7 +45,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     
 * 0.1
     * Initial Release
-    * * See [commit change](https://github.com/Jseialer/team-up/commits/main) or See [release history](https://github.com/Jsieler/team-up/releases)
+    * * See [commit change](https://github.com/Jsieler/team-up/commits/main) or See [release history](https://github.com/Jsieler/team-up/releases)
 
 ## Contributing
 Please refer to the [Contributor Covenenant](https://www.contributor-covenant.org/) for guidelines on contributing on this project.
