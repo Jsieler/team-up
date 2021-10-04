@@ -8,18 +8,14 @@ import ThoughtList from '../components/ThoughtList'
 import GameThoughtForm from '../components/GameThoughtForm'
 import FollowGameButton from '../components/FolllowGameButton'
 
-// import ReactionList from '../components/ReactionList';
-// import ReactionForm from '../components/ReactionForm';
-
 const Game = () => {
 
     const loggedIn = Auth.loggedIn();
 
-    // ============== LOADS DATA ON GAME FROM DATABASE ================
-    const { id: gameUrl } = useParams();
 
-    // const mockData = { gameName: 'Minecraft' }
-    // console.log(gameUrl);
+    // ============== LOADS DATA ON GAME FROM DATABASE ================
+
+    const { id: gameUrl } = useParams();
 
     const { loading, data } = useQuery(QUERY_GAME, {
         variables: { gameUrl }
@@ -27,17 +23,13 @@ const Game = () => {
 
     const game = data?.game || null;
 
-    // console.log(game);
-
-    // const game = data;
-    // console.log(game);
-
     // ============== LOADS THOUGHT ON GAME FROM DATABASE ================
 
     if (loading) {
         return <div>Loading...</div>;
     }
 
+    // LOGIC FOR IF USER TRIES TO ACCESS A GAME PAGE THAT DOESN'T EXIST
     if (game === null) {
 
         return (
