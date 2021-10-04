@@ -3,7 +3,7 @@ import React from 'react';
 const GameList = () => {
 
     return (
-
+        <>
         <div className="dropdown">
             <button className="special-button">Choose a Game</button>
             <div className="dropdown-content">
@@ -16,7 +16,8 @@ const GameList = () => {
                 <a className="halo" href="/game/halo" alt="halo">halo</a>
                 <a className="cod" href="/game/cod" alt="cod">cod</a>
             </div>
-            <div className="vertical-menu">
+        </div>
+        <div className="vertical-menu">
                 <a className="Mphone" href="/game/minecraft">Minecraft</a>
                 <a className="Fphone" href="/game/fortnite">Fortnite</a>
                 <a className="Lphone" href="/game/leagueoflegends">League</a>
@@ -26,7 +27,7 @@ const GameList = () => {
                 <a className="Hphone" href="/game/halo">Halo</a>
                 <a className="Cphone" href="/game/cod">Cod</a>
             </div>
-        </div>
+        </>
     );
 };
 

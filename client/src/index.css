@@ -1407,7 +1407,6 @@ nav a:hover {
   .sono {
     margin-top: 10px;
   }
-
 }
 
 @media (min-width: 768px) {
@@ -1579,6 +1578,10 @@ nav a:hover {
 }
 
 @media only screen and (max-width: 767px) {
+  .dropdown {
+    display: none;
+    visibility: none;
+  }
   .dropdown-content {
     display: none;
     visibility: none;
