@@ -6,9 +6,9 @@ class AuthService {
   }
 
   loggedIn() {
-    // Checks if there is a saved token and it's still valid
+    // CHECKS TO SEE IF THERE IS A STORED TOKEN AND IF IT REMAINS VALID
     const token = this.getToken();
-    return !!token && !this.isTokenExpired(token); // handwaiving here
+    return !!token && !this.isTokenExpired(token);
   }
 
   isTokenExpired(token) {
@@ -23,23 +23,27 @@ class AuthService {
   }
 
   getToken() {
-    // Retrieves the user token from localStorage
+
+    // RETURNS USER TOKEN FROM LOCALSTORAGE
     return localStorage.getItem('id_token');
   }
 
   login(idToken) {
-    // Saves user token to localStorage
-    localStorage.setItem('id_token', idToken);
 
+    // SAVES USER TOKEN TO LOCALSTORAGE
+    localStorage.setItem('id_token', idToken);
     window.location.assign('/');
   }
 
   logout() {
-    // Clear user token and profile data from localStorage
-    // axios.defaults.headers.common["Authorization"] = null;
+
+    // CLEARS TOKEN STORED
     localStorage.removeItem('id_token');
-    // this will reload the page and reset the state of the application
+
+
+    // RELOADS PAGE AFTER EVERY NEW TOKEN STATE CHANGE
     window.location.assign('/');
+
   }
 }
 

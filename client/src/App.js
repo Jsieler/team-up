@@ -18,6 +18,7 @@ const httpLink = createHttpLink({
   uri: '/graphql',
 });
 
+// RETURNING OUR LOGGED IN TOKEN FROM LOCALSTORAGE - THIS HELPS WITH LEAVING A USER SIGNATURE
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
   return {
@@ -28,6 +29,7 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
+// SETS OUR CACHEING INSTANCES
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache({}),
