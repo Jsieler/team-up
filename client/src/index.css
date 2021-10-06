@@ -1314,8 +1314,10 @@ nav a:hover {
   display: none;
   font-family: 'Karla', sans-serif;
   background: linear-gradient(90deg, #f5ed00 70%, #e6de00 70%), #fff700;
-  min-width: 61.5vw;
+  min-width: 80vw;
   z-index: 1;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 .dropdown-content a {
@@ -1384,31 +1386,6 @@ nav a:hover {
   }
 }
 
-@media (max-width: 1400px) {
-  .dropdown-content a {
-    transition: 0.5s;
-    background-color: var(--yellow);
-    background-size: contain;
-    width: 100%;
-  }
-
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .dropdown:hover .dropbtn {
-    background-color: var(--dark);
-  }
-
-  .move-left {
-    margin-left: 28vw;
-  }
-
-  .sono {
-    margin-top: 10px;
-  }
-}
-
 @media (min-width: 768px) {
   .dropdown {
     width: 0px;
@@ -1450,9 +1427,10 @@ nav a:hover {
 }
 
 .minecraft {
-  background: url('../src/images/Minecraft.png');
+  background-image: url('../src/images/Minecraft.png');
   background-position: left;
   background-repeat: no-repeat;
+  background-size: 100% 100%; 
   height: 130px;
 }
 
@@ -1467,6 +1445,7 @@ nav a:hover {
   background: url('../src/images/Fortnite.png');
   background-position: left;
   background-repeat: no-repeat;
+  background-size: 100% 100%; 
   height: 130px;
 }
 
@@ -1480,6 +1459,7 @@ nav a:hover {
   background: url('../src/images/League.png');
   background-position: left;
   background-repeat: no-repeat;
+  background-size: 100% 100%; 
   height: 130px;
 }
 
@@ -1493,6 +1473,7 @@ nav a:hover {
   background: url('../src/images/pubg.png');
   background-position: left;
   background-repeat: no-repeat;
+  background-size: 100% 100%; 
   height: 130px;
 }
 
@@ -1506,6 +1487,7 @@ nav a:hover {
   background: url('../src/images/apex.png');
   background-position: left;
   background-repeat: no-repeat;
+  background-size: 100% 100%; 
   height: 130px;
 }
 
@@ -1519,6 +1501,7 @@ nav a:hover {
   background: url('../src/images/nbaslider.png');
   background-position: left;
   background-repeat: no-repeat;
+  background-size: 100% 100%; 
   height: 130px;
 }
 
@@ -1542,6 +1525,7 @@ nav a:hover {
   background: url('../src/images/haloslider2.png');
   background-position: left;
   background-repeat: no-repeat;
+  background-size: 100% 100%; 
   height: 130px;
   width: 100%;
 }
@@ -1556,6 +1540,7 @@ nav a:hover {
   background: url('../src/images/codslider.png');
   background-position: left;
   background-repeat: no-repeat;
+  background-size: 100% 100%; 
   height: 130px;
   width: 100%;
 }
@@ -1569,12 +1554,6 @@ nav a:hover {
 .vertical-menu {
   display: none;
   visibility: none;
-}
-
-@media only screen and (max-width: 1401) {
-  body {
-    background-color: blue;
-  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -1611,6 +1590,7 @@ nav a:hover {
   }
   .Mphone {
     background: url("../src/images/Minecraft.png");
+    /* background-size: cover; */
   }
   .Fphone {
     background: url("../src/images/Fortnite.png");
@@ -1741,3 +1721,12 @@ img.pcIcon {
   width: 100%;
   border-radius: 10px;
 }
+
+.thoughtFormText textarea{
+  color: white;
+}
+
+textarea{
+  color: white;
+}
+
