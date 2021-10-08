@@ -23,31 +23,11 @@
 ## Installation 
 * No installation necessary just click the <a href="https://protected-depths-21600.herokuapp.com/">Team-Up</a> link to use!
 
-## License
-MIT License
-    
-Copyright (c) 2021 Anthony Pena
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation fil (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge,publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,subject to the following conditions:
-            
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-            
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
 ## Contributors
 * Josh Sieler - https://github.com/Jsieler
 * Kylee Bijerring - https://github.com/kybij
 * Luke McHenry - https://github.com/LukeMcHenry311
 * Anthony Pena - https://github.com/anthonypena97
-
-## Version History
-    
-* 0.1
-    * Initial Release
-    * * See [commit change](https://github.com/Jsieler/team-up/commits/main) or See [release history](https://github.com/Jsieler/team-up/releases)
-
-## Contributing
-Please refer to the [Contributor Covenenant](https://www.contributor-covenant.org/) for guidelines on contributing on this project.
 
 ![9FFA50D9-EAE5-4316-89E6-6E7E24B03842](https://user-images.githubusercontent.com/80868375/135702913-a4f26a1a-4ab1-45a8-8eb6-939a6333e320.jpeg)
 ![080E3D87-F6B6-49C5-A810-F04A8B134AC5_1_105_c](https://user-images.githubusercontent.com/80868375/135702915-6c519162-6cbf-45ef-b0b5-ef7fecfeea7d.jpeg)
