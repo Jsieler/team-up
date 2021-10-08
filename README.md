@@ -13,13 +13,6 @@
 * `JSON Web Token`
 * `Bcryptjs`
 
-## Table of Contents
-* [Installation](#installation)
-* [License](#license)
-* [Contributors](#contributors)
-* [Version History](#version-history)
-* [Contributing](#contributing)
-
 ## Installation 
 * No installation necessary just click the <a href="https://protected-depths-21600.herokuapp.com/">Team-Up</a> link to use!
 
